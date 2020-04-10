@@ -1,0 +1,1 @@
+# alberta-covid-19-tracker
