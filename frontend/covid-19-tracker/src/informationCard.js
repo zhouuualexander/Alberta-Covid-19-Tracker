@@ -8,7 +8,10 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
+    minWidth: 90,
+    marginLeft:"10%",
+    marginTop:10,
+    marginBottom:10,
   },
   bullet: {
     display: 'inline-block',
@@ -32,11 +35,7 @@ export default function SimpleCard(props) {
       <CardContent style = {{
           justifyContent: "center",
           textAlign: "center",
-          marginLeft:"auto",
-          marginRight:"auto"}}>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Information of the Day
-        </Typography>
+          }}>
         <Typography variant="h5" component="h2">
           {props.name}
         </Typography>
