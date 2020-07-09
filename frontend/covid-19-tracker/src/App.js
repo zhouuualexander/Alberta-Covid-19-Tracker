@@ -71,7 +71,7 @@ function App() {
       
         <React.Fragment style={{ width: "20%", opacity: "90%" }}>
         <h2 style={{marginLeft:"10%" ,marginRight:"30%"}}> Alberta total:  {abData.length}</h2>
-        <Grid container>
+        <Grid container >
         <React.Fragment>
         
           {array.map(function (zone) {
