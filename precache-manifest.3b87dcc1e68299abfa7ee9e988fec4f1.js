@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "607ae5bfe5af0f2b7c85b81b81ea5b5d",
+    "revision": "2943bf64592f8093ed59c478b6914955",
     "url": "/alberta-covid-19-tracker/index.html"
   },
   {
