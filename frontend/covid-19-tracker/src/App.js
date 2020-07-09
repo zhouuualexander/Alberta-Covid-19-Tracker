@@ -1,8 +1,10 @@
 import "moment-timezone";
 import React, { useState, useEffect } from "react";
-import Card from "../src/informationCard.js";
+import Card from "../src/component/informationCard.js";
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Header from './component/header';
 import "./App.css";
-import axios from "axios";
 import * as d3 from "d3";
 import BarChart from './component/dataVisualize/barchart';
 function App() {
@@ -10,17 +12,14 @@ function App() {
   var albertaData = [];
   const [abData, setabData] = useState( albertaData );
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(
-        "https://data.edmonton.ca/resource/jmcu-tz8y.json?$limit=10000000000&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq"
-       
-      );
-      console.log(result);
-      setabData(result.data);
-    
-    };
-    
-    fetchData();
+      fetch("https://data.edmonton.ca/resource/jmcu-tz8y.json?$limit=10000000000&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq",{
+        method:'GET',
+        headers:{
+          'Content-Type':'applicaiton/json',
+        }
+      }).then(resp=>resp.json())
+      .then(resp=> setabData(resp))
+      .catch(error=> console.log(error))
   }, []);
   /**************************************************************************** */
   /*----------------------------------------removeDuplicates-------------------------*/
@@ -65,29 +64,33 @@ function App() {
   
   return (
     <div>
+
       <div className="App_header">
-        <h1 style={{ marginLeft: "2%" }}>Covid-19 Tendency in Alberta</h1>
+        <Header header = 'Alberta Covid-19 Tracker' ></Header>
       </div>
-      <div style={{ display: "flex" }}>
-  
-        <div style={{ width: "20%", opacity: "90%" }}>
-        <h2 style={{marginLeft:"10%"}}>Alberta total is: {abData.length}</h2>
-        {/* <BarChart /> */}
+      
+        <React.Fragment style={{ width: "20%", opacity: "90%" }}>
+        <h2 style={{marginLeft:"10%" ,marginRight:"30%"}}> Alberta total:  {abData.length}</h2>
+        <Grid container>
+        <React.Fragment>
+        
           {array.map(function (zone) {
             return (
-              <div>
                 <Card
                   name={zone["alberta_health_services_zone"]}
                   total={zone["total case"]}
                   active={zone["total active"]}
                   died={zone["total death"]}
                 />
-              </div>
+        
             );
           })}
-        </div>
-        
-      </div>
+          </React.Fragment>
+          </Grid>
+        </React.Fragment>
+       
+
+     
     </div>
   );
 }
