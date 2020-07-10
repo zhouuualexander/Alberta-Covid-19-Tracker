@@ -1,18 +1,35 @@
 import "moment-timezone";
 import React, { useState, useEffect } from "react";
-import Card from "../src/component/informationCard.js";
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Header from './component/header';
+import CityInformation from './components/cityInformation'
+import Header from './components/header';
 import "./App.css";
-import * as d3 from "d3";
-import BarChart from './component/dataVisualize/barchart';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLungsVirus} from '@fortawesome/free-solid-svg-icons'
+
+
 function App() {
   /***********get data from API ******************************************************8 */
   var albertaData = [];
+  var albertaOlddata = []
+  const [abOlddata, setabOlddata] = useState( albertaOlddata );
   const [abData, setabData] = useState( albertaData );
+
+  /**
+   * /**
+    * @param {void} getYesterdaysDate - this function is help to get yesterday's date .
+    */
+
+function getYesterdaysDate() {
+  var date = new Date();
+  date.setDate(date.getDate()-2);
+  return date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate();
+}
+
+var yesterday = getYesterdaysDate()
+
+
   useEffect(() => {
-      fetch("https://data.edmonton.ca/resource/jmcu-tz8y.json?$limit=10000000000&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq",{
+      fetch(`https://data.edmonton.ca/resource/jmcu-tz8y.json?$limit=10000000000&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq`,{
         method:'GET',
         headers:{
           'Content-Type':'applicaiton/json',
@@ -22,6 +39,16 @@ function App() {
       .catch(error=> console.log(error))
   }, []);
   /**************************************************************************** */
+  useEffect(() => {
+    fetch(`https://data.edmonton.ca/resource/jmcu-tz8y.json?$limit=10000000000&$where=date_reported between '2020-03-06' and '${yesterday}'&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq`,{
+      method:'GET',
+      headers:{
+        'Content-Type':'applicaiton/json',
+      }
+    }).then(resp=>resp.json())
+    .then(resp=> setabOlddata(resp))
+    .catch(error=> console.log(error))
+}, []);
   /*----------------------------------------removeDuplicates-------------------------*/
   function removeDuplicates(originalArray, prop) {
     var newArray = [];
@@ -36,6 +63,7 @@ function App() {
   }
   //reference:https://stackoverflow.com/questions/2218999/remove-duplicates-from-an-array-of-objects-in-javascript
   var uniqueArray = removeDuplicates(abData, "alberta_health_services_zone");
+  var uniqueOldArray = removeDuplicates(abOlddata,"alberta_health_services_zone")
   /*--------------------------------------Finalize the array-------------------------*/
   function finalizeArray(originalArray, uniqueArray) {
     var finalArray = [];
@@ -61,34 +89,23 @@ function App() {
   }
   /*---------------------------------Array has been finalized-----------------------*/
   var array = finalizeArray(abData, uniqueArray);
-  
+  var oldarray = finalizeArray(abOlddata,uniqueOldArray);
   return (
     <div>
 
       <div className="App_header">
         <Header header = 'Alberta Covid-19 Tracker' ></Header>
-      </div>
-      
-        <React.Fragment style={{ width: "20%", opacity: "90%" }}>
-        <h2 style={{marginLeft:"10%" ,marginRight:"30%"}}> Alberta total:  {abData.length}</h2>
-        <Grid container >
-        <React.Fragment>
         
-          {array.map(function (zone) {
-            return (
-                <Card
-                  name={zone["alberta_health_services_zone"]}
-                  total={zone["total case"]}
-                  active={zone["total active"]}
-                  died={zone["total death"]}
-                />
-        
-            );
-          })}
-          </React.Fragment>
-          </Grid>
-        </React.Fragment>
        
+      </div>
+        <React.Fragment style={{ width: "20%", opacity: "90%" }}>
+        <h2 style={{marginLeft:"10%" ,marginRight:"30%"}}> Alberta total:  {abData.length}  </h2>
+        <h2 style={{marginLeft:"10%" ,marginRight:"30%"}}> Alberta today increased cases:  {abData.length-abOlddata.length}  </h2>
+       
+        </React.Fragment>
+       <CityInformation array={array} />
+      
+
 
      
     </div>
