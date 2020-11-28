@@ -5,7 +5,7 @@ import Header from './components/header';
 import "./App.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLungsVirus} from '@fortawesome/free-solid-svg-icons'
-
+import MapContainer from './components/dataVisualize/map';
 
 function App() {
   /***********get data from API ******************************************************8 */
@@ -104,8 +104,7 @@ var yesterday = getYesterdaysDate()
        
         </React.Fragment>
        <CityInformation array={array} />
-      
-
+       <MapContainer/>
 
      
     </div>
