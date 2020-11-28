@@ -111,10 +111,24 @@ var yesterday = getYesterdaysDate()
     radius: array[1]["total active"]*10,
     zIndex: 1
   }
+  const total_edmonton_options = {
+    strokeColor: '#00FF00',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#00FF00',
+    fillOpacity: 0.35,
+    clickable: false,
+    draggable: false,
+    editable: false,
+    visible: true,
+    radius: array[1]["total case"]*5,
+    zIndex: 1
+  }
   
   const calgary = {
     lat: 51.0447, lng: -114.0719
   }
+
   const calgary_options = {
     strokeColor: '#FF0000',
     strokeOpacity: 0.8,
@@ -126,6 +140,19 @@ var yesterday = getYesterdaysDate()
     editable: false,
     visible: true,
     radius: array[0]["total active"]*10,
+    zIndex: 1
+  }
+  const total_calgary_options = {
+    strokeColor: '#00FF00',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#00FF00',
+    fillOpacity: 0.35,
+    clickable: false,
+    draggable: false,
+    editable: false,
+    visible: true,
+    radius: array[0]["total case"]*5,
     zIndex: 1
   }
   const north = {
@@ -144,6 +171,19 @@ var yesterday = getYesterdaysDate()
     radius: array[3]["total active"]*10,
     zIndex: 1
   }
+  const total_north_options = {
+    strokeColor: '#00FF00',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#00FF00',
+    fillOpacity: 0.35,
+    clickable: false,
+    draggable: false,
+    editable: false,
+    visible: true,
+    radius: array[3]["total case"]*5,
+    zIndex: 1
+  }
   const south = {
     lat: 50.0000, lng: -112.0000
   }
@@ -158,6 +198,19 @@ var yesterday = getYesterdaysDate()
     editable: false,
     visible: true,
     radius: array[4]["total active"]*10,
+    zIndex: 1
+  }
+  const total_south_options = {
+    strokeColor: '#00FF00',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#00FF00',
+    fillOpacity: 0.35,
+    clickable: false,
+    draggable: false,
+    editable: false,
+    visible: true,
+    radius: array[4]["total case"]*5,
     zIndex: 1
   }
   const central = {
@@ -176,8 +229,21 @@ var yesterday = getYesterdaysDate()
     radius: array[2]["total active"]*10,
     zIndex: 1
   }
+  const total_central_options = {
+    strokeColor: '#00FF00',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#00FF00',
+    fillOpacity: 0.35,
+    clickable: false,
+    draggable: false,
+    editable: false,
+    visible: true,
+    radius: array[2]["total case"]*5,
+    zIndex: 1
+  }
 
-  const cities =[[edmonton,edmonton_options],[calgary,calgary_options],[north,north_options],[south,south_options], [central,central_options]]
+  const cities =[[edmonton,edmonton_options,total_edmonton_options],[calgary,calgary_options,total_calgary_options],[north,north_options,total_north_options],[south,south_options,total_south_options], [central,central_options,total_central_options]]
   
   return (
     <div>

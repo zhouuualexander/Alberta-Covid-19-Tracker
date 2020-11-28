@@ -50,6 +50,7 @@ const MapContainer = (props) => {
           {props.cities.map(function (city) {
            
             return (
+              <div>
               <Circle
               // optional
               onLoad={onLoad}
@@ -60,6 +61,17 @@ const MapContainer = (props) => {
               // required
               options={city[1]}
             />
+            <Circle
+            // optional
+            onLoad={onLoad}
+            // optional
+            onUnmount={onUnmount}
+            // required
+            center={city[0]}
+            // required
+            options={city[2]}
+          />
+          </div>
         
             );
           })}
