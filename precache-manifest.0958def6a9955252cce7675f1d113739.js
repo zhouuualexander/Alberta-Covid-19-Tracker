@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3bcd474cb509342868cd40b9d96f01b9",
+    "revision": "f5dc8117f72e3480bf54eba892513f4d",
     "url": "/alberta-covid-19-tracker/index.html"
   },
   {
-    "revision": "bf44ff3a5de5a50201ab",
+    "revision": "fc0e5e9ee30ec74cd13e",
     "url": "/alberta-covid-19-tracker/static/css/main.d0bc96fd.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/alberta-covid-19-tracker/static/js/2.f07ed5fd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "bf44ff3a5de5a50201ab",
-    "url": "/alberta-covid-19-tracker/static/js/main.a446783a.chunk.js"
+    "revision": "fc0e5e9ee30ec74cd13e",
+    "url": "/alberta-covid-19-tracker/static/js/main.f1134d0d.chunk.js"
   },
   {
     "revision": "1f20b713a2693adbf600",
