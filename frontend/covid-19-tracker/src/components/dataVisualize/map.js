@@ -44,7 +44,7 @@ const MapContainer = (props) => {
         <GoogleMap
         
           mapContainerStyle={mapStyles}
-          zoom={5.38}
+          zoom={5.2}
           center={defaultCenter}
         >
           {props.cities.map(function (city) {
