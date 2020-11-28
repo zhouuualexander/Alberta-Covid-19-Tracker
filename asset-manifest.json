@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/alberta-covid-19-tracker/static/css/main.b77d3866.chunk.css",
-    "main.js": "/alberta-covid-19-tracker/static/js/main.9f5a1a51.chunk.js",
-    "main.js.map": "/alberta-covid-19-tracker/static/js/main.9f5a1a51.chunk.js.map",
+    "main.js": "/alberta-covid-19-tracker/static/js/main.abec7065.chunk.js",
+    "main.js.map": "/alberta-covid-19-tracker/static/js/main.abec7065.chunk.js.map",
     "runtime-main.js": "/alberta-covid-19-tracker/static/js/runtime-main.a7e4f3ce.js",
     "runtime-main.js.map": "/alberta-covid-19-tracker/static/js/runtime-main.a7e4f3ce.js.map",
-    "static/js/2.96608bce.chunk.js": "/alberta-covid-19-tracker/static/js/2.96608bce.chunk.js",
-    "static/js/2.96608bce.chunk.js.map": "/alberta-covid-19-tracker/static/js/2.96608bce.chunk.js.map",
+    "static/js/2.bb8dab29.chunk.js": "/alberta-covid-19-tracker/static/js/2.bb8dab29.chunk.js",
+    "static/js/2.bb8dab29.chunk.js.map": "/alberta-covid-19-tracker/static/js/2.bb8dab29.chunk.js.map",
     "index.html": "/alberta-covid-19-tracker/index.html",
-    "precache-manifest.0b3e73c4265e7ee1c64190cb5b7becbb.js": "/alberta-covid-19-tracker/precache-manifest.0b3e73c4265e7ee1c64190cb5b7becbb.js",
+    "precache-manifest.1335bac6aae123bcd1eb185ea8b23a97.js": "/alberta-covid-19-tracker/precache-manifest.1335bac6aae123bcd1eb185ea8b23a97.js",
     "service-worker.js": "/alberta-covid-19-tracker/service-worker.js",
     "static/css/main.b77d3866.chunk.css.map": "/alberta-covid-19-tracker/static/css/main.b77d3866.chunk.css.map",
-    "static/js/2.96608bce.chunk.js.LICENSE.txt": "/alberta-covid-19-tracker/static/js/2.96608bce.chunk.js.LICENSE.txt"
+    "static/js/2.bb8dab29.chunk.js.LICENSE.txt": "/alberta-covid-19-tracker/static/js/2.bb8dab29.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a7e4f3ce.js",
-    "static/js/2.96608bce.chunk.js",
+    "static/js/2.bb8dab29.chunk.js",
     "static/css/main.b77d3866.chunk.css",
-    "static/js/main.9f5a1a51.chunk.js"
+    "static/js/main.abec7065.chunk.js"
   ]
 }
