@@ -28,7 +28,7 @@ export default function SimpleCard(props) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} style={{marginLeft:"3%"}}>
       <CardContent
         style={{
           justifyContent: "center",

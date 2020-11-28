@@ -95,16 +95,13 @@ var yesterday = getYesterdaysDate()
 
       <div className="App_header">
         <Header header = 'Alberta Covid-19 Tracker' ></Header>
-        
-       
       </div>
         <React.Fragment style={{ width: "20%", opacity: "90%" }}>
         <h2 style={{marginLeft:"10%" ,marginRight:"30%"}}> Alberta total:  {abData.length}  </h2>
         <h2 style={{marginLeft:"10%" ,marginRight:"30%"}}> Alberta today increased cases:  {abData.length-abOlddata.length}  </h2>
-       
         </React.Fragment>
        <CityInformation array={array} />
-       <MapContainer/>
+       <MapContainer />
 
      
     </div>
