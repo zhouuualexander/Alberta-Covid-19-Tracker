@@ -121,7 +121,7 @@ var yesterday = getYesterdaysDate()
     draggable: false,
     editable: false,
     visible: true,
-    radius: array[1]["total case"]*5,
+    radius: array[1]["total case"]*10,
     zIndex: 1
   }
   
@@ -152,7 +152,7 @@ var yesterday = getYesterdaysDate()
     draggable: false,
     editable: false,
     visible: true,
-    radius: array[0]["total case"]*5,
+    radius: array[0]["total case"]*10,
     zIndex: 1
   }
   const north = {
@@ -181,7 +181,7 @@ var yesterday = getYesterdaysDate()
     draggable: false,
     editable: false,
     visible: true,
-    radius: array[3]["total case"]*5,
+    radius: array[3]["total case"]*10,
     zIndex: 1
   }
   const south = {
@@ -210,7 +210,7 @@ var yesterday = getYesterdaysDate()
     draggable: false,
     editable: false,
     visible: true,
-    radius: array[4]["total case"]*5,
+    radius: array[4]["total case"]*10,
     zIndex: 1
   }
   const central = {
@@ -239,7 +239,7 @@ var yesterday = getYesterdaysDate()
     draggable: false,
     editable: false,
     visible: true,
-    radius: array[2]["total case"]*5,
+    radius: array[2]["total case"]*10,
     zIndex: 1
   }
 
@@ -254,10 +254,13 @@ var yesterday = getYesterdaysDate()
         <React.Fragment style={{ width: "20%", opacity: "90%" }}>
         <h2 style={{marginLeft:"10%" ,marginRight:"30%"}}> Alberta total:  {abData.length}  </h2>
         <h2 style={{marginLeft:"10%" ,marginRight:"30%"}}> Alberta today increased cases:  {abData.length-abOlddata.length}  </h2>
+
         </React.Fragment>
        <CityInformation array={array} />
        <MapContainer cities = {cities} />
 
+        <h5 style={{marginLeft:"10%" ,marginRight:"30%"}}> Red circle: Active Cases  </h5>
+        <h5 style={{marginLeft:"10%" ,marginRight:"30%"}}> Green circle: Total Cases</h5>
      
     </div>
   );

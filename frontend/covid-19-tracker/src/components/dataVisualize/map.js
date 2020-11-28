@@ -9,7 +9,7 @@ const MapContainer = (props) => {
     height: "50vh",
     width: "82%",
     marginLeft:"10%",
-    marginBottom:"15%"
+    marginBottom:"0%"
     };
   
   const defaultCenter = {
