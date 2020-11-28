@@ -1,34 +1,72 @@
 import React from 'react';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
-import { Circle } from "react-google-maps";
-import DrawingManager from "react-google-maps/lib/components/drawing/DrawingManager";
+import { Circle } from '@react-google-maps/api';
 
-const MapContainer = () => {
+
+const MapContainer = (props) => {
   
   const mapStyles = {        
     height: "50vh",
-    width: "72%",
+    width: "82%",
     marginLeft:"10%",
     marginBottom:"15%"
     };
   
   const defaultCenter = {
-    lat: 53.5461, lng: -116.4938
+    lat: 54.861, lng: -116.4938
+  }
+
+  const options = {
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35,
+    clickable: false,
+    draggable: false,
+    editable: false,
+    visible: true,
+    radius: 50000,
+    zIndex: 1
   }
   
+
+  const onLoad = circle => {
+    console.log('Circle onLoad circle: ', circle)
+  }
+  
+  const onUnmount = circle => {
+    console.log('Circle onUnmount circle: ', circle)
+  }
   return (
      <LoadScript
        googleMapsApiKey='AIzaSyA3lBAg4Tn0DQvw9gJ8ZRBKV52nLzCru1E'>
         <GoogleMap
         
           mapContainerStyle={mapStyles}
-          zoom={6}
+          zoom={5.38}
           center={defaultCenter}
         >
-            <Circle def={defaultCenter}
-            radius='100'
-            
+          {props.cities.map(function (city) {
+           
+            return (
+              <Circle
+              // optional
+              onLoad={onLoad}
+              // optional
+              onUnmount={onUnmount}
+              // required
+              center={city[0]}
+              // required
+              options={city[1]}
             />
+        
+            );
+          })}
+              
+        
+            
+          
             </GoogleMap>
      </LoadScript>
   )

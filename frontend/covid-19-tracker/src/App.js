@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import CityInformation from './components/cityInformation'
 import Header from './components/header';
 import "./App.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLungsVirus} from '@fortawesome/free-solid-svg-icons'
+
 import MapContainer from './components/dataVisualize/map';
 
 function App() {
@@ -89,7 +88,97 @@ var yesterday = getYesterdaysDate()
   }
   /*---------------------------------Array has been finalized-----------------------*/
   var array = finalizeArray(abData, uniqueArray);
+  if (array.length === 0)
+    return null;
+  console.log(array)
   var oldarray = finalizeArray(abOlddata,uniqueOldArray);
+  
+  //city location
+  const edmonton = {
+    lat: 53.5461, lng: -113.4938
+  }
+  
+  const edmonton_options = {
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35,
+    clickable: false,
+    draggable: false,
+    editable: false,
+    visible: true,
+    radius: array[1]["total active"]*10,
+    zIndex: 1
+  }
+  
+  const calgary = {
+    lat: 51.0447, lng: -114.0719
+  }
+  const calgary_options = {
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35,
+    clickable: false,
+    draggable: false,
+    editable: false,
+    visible: true,
+    radius: array[0]["total active"]*10,
+    zIndex: 1
+  }
+  const north = {
+    lat: 57.0000,lng: -115.0000
+  }
+  const north_options = {
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35,
+    clickable: false,
+    draggable: false,
+    editable: false,
+    visible: true,
+    radius: array[3]["total active"]*10,
+    zIndex: 1
+  }
+  const south = {
+    lat: 50.0000, lng: -112.0000
+  }
+  const south_options = {
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35,
+    clickable: false,
+    draggable: false,
+    editable: false,
+    visible: true,
+    radius: array[4]["total active"]*10,
+    zIndex: 1
+  }
+  const central = {
+    lat: 52.0000, lng: -113.2900
+  }
+  const central_options = {
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35,
+    clickable: false,
+    draggable: false,
+    editable: false,
+    visible: true,
+    radius: array[2]["total active"]*10,
+    zIndex: 1
+  }
+
+  const cities =[[edmonton,edmonton_options],[calgary,calgary_options],[north,north_options],[south,south_options], [central,central_options]]
+  
   return (
     <div>
 
@@ -101,7 +190,7 @@ var yesterday = getYesterdaysDate()
         <h2 style={{marginLeft:"10%" ,marginRight:"30%"}}> Alberta today increased cases:  {abData.length-abOlddata.length}  </h2>
         </React.Fragment>
        <CityInformation array={array} />
-       <MapContainer />
+       <MapContainer cities = {cities} />
 
      
     </div>
