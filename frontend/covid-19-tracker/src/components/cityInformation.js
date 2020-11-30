@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Card from "../components/informationCard";
 function CityInformation(props){
     return(
-<Grid container style={{marginLeft:"7%"}} >
+<Grid container  >
         <React.Fragment>
         
           {props.array.map(function (zone) {

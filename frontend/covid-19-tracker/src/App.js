@@ -246,23 +246,26 @@ var yesterday = getYesterdaysDate()
   const cities =[[edmonton,edmonton_options,total_edmonton_options],[calgary,calgary_options,total_calgary_options],[north,north_options,total_north_options],[south,south_options,total_south_options], [central,central_options,total_central_options]]
   
   return (
-    <div>
+    <React.Fragment>
 
       <div className="App_header">
         <Header header = 'Alberta Covid-19 Tracker' ></Header>
+     
       </div>
+      
         <React.Fragment style={{ width: "20%", opacity: "90%" }}>
         <h2 style={{marginLeft:"10%" ,marginRight:"30%"}}> Alberta total:  {abData.length}  </h2>
         <h2 style={{marginLeft:"10%" ,marginRight:"30%"}}> Alberta today increased cases:  {abData.length-abOlddata.length}  </h2>
-
+        
         </React.Fragment>
-       <CityInformation array={array} />
+        <div style={{marginLeft:"7%"}}><CityInformation array={array} /></div>
+       
        <MapContainer cities = {cities} />
 
         <h5 style={{marginLeft:"10%" ,marginRight:"30%"}}> Red circle: Active Cases  </h5>
         <h5 style={{marginLeft:"10%" ,marginRight:"30%"}}> Green circle: Total Cases</h5>
      
-    </div>
+    </React.Fragment>
   );
 }
 

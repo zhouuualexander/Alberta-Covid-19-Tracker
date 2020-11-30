@@ -24,7 +24,8 @@
     "react-google-maps": "^9.4.5",
     "react-live-clock": "^4.0.5",
     "react-moment": "^0.9.7",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "themed-digital-clock": "^1.1.4"
   },
   "scripts": {
     "predeploy": "npm run build",
