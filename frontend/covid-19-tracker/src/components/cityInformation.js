@@ -3,8 +3,8 @@ import Grid from '@material-ui/core/Grid';
 import Card from "../components/informationCard";
 function CityInformation(props){
     return(
-<Grid container  >
-        <React.Fragment>
+<Grid container style={{padding:"10px",marginRight:"10", display:"flex"}} >
+        <React.Fragment >
         
           {props.array.map(function (zone) {
             return (

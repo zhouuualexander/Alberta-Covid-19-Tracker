@@ -6,10 +6,12 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 200,
-    marginLeft: "10%",
+    minWidth: 300,
+    height:140,
+    marginLeft: 10,
     marginTop: 10,
     marginBottom: 10,
+    marginRight:10
   },
   bullet: {
     display: "inline-block",
@@ -28,17 +30,18 @@ export default function SimpleCard(props) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root} style={{marginLeft:"3%"}}>
+    <Card className={classes.root} style={{marginLeft:"10px", padding:"10px"}}>
       <CardContent
         style={{
+          margin:"0",
           justifyContent: "center",
           textAlign: "center",
         }}
       >
-        <Typography variant="h5" component="h2">
+        <Typography variant="h4" component="h2" >
           {props.name}
         </Typography>
-        <Typography variant="body2" component="p">
+        <Typography variant="body1" component="p">
           Total cases: {props.total}
           <br />
           Active cases: {props.active}

@@ -264,8 +264,11 @@ var yesterday = getYesterdaysDate()
 
         <h5 style={{marginLeft:"10%" ,marginRight:"30%"}}> Red circle: Active Cases  </h5>
         <h5 style={{marginLeft:"10%" ,marginRight:"30%"}}> Green circle: Total Cases</h5>
+    
+     <footer style={{position:"relative", left:"50%", fontSize:"10px", marginBottom:"10px"}}>&copy; 2020 Zijian Zhou</footer>
      
     </React.Fragment>
+    
   );
 }
 
