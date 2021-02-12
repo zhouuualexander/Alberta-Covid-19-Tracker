@@ -6,10 +6,10 @@ import { Circle } from '@react-google-maps/api';
 const MapContainer = (props) => {
   
   const mapStyles = {        
-    height: "50vh",
-    width: "82%",
-    marginLeft:"10%",
-    marginBottom:"0%"
+    height: "30vh",
+    width: "90vh",
+    marginLeft:"auto",
+    marginRight:"auto"
     };
   
   const defaultCenter = {
@@ -44,7 +44,7 @@ const MapContainer = (props) => {
         <GoogleMap
         
           mapContainerStyle={mapStyles}
-          zoom={5.2}
+          zoom={4.8}
           center={defaultCenter}
         >
           {props.cities.map(function (city) {
@@ -61,16 +61,7 @@ const MapContainer = (props) => {
               // required
               options={city[1]}
             />
-            <Circle
-            // optional
-            onLoad={onLoad}
-            // optional
-            onUnmount={onUnmount}
-            // required
-            center={city[0]}
-            // required
-            options={city[2]}
-          />
+           
           </div>
         
             );

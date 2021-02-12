@@ -3,11 +3,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import { Autocomplete } from "@react-google-maps/api";
 
 const useStyles = makeStyles({
   root: {
     minWidth: 300,
-    height:140,
+    height: 'auto',
     marginLeft: 10,
     marginTop: 10,
     marginBottom: 10,
@@ -26,29 +27,42 @@ const useStyles = makeStyles({
   },
 });
 
-export default function SimpleCard(props) {
+const SimpleCard = function(props) {
   const classes = useStyles();
+  if(props.name=="Edmonton Zone"||props.name=="Calgary Zone"){
+    return (
+    
+      <Card className={classes.root} >
+        <CardContent style={{margin:"0",justifyContent: "center",textAlign: "center",}}>
+          <Typography variant="h4" component="h2" >
+            {props.name}
+          </Typography>
+          <Typography variant="body1" component="p">
+            Total cases: {props.total}
+            <br />
+            Active cases: {props.active}
+            <br />
+            Deaths: {props.died}
+          </Typography>
+        </CardContent>
+      </Card>
+    );
+  }
+  else{
+    return(
+      <Card className={classes.root} >
+        <CardContent style={{margin:"0",justifyContent: "center",textAlign: "center",}}>
+          <Typography variant="h4" component="h2" >
+            {props.name}
+          </Typography>
+          <Typography variant="body1" component="p">
+            Total cases: {props.total}
 
-  return (
-    <Card className={classes.root} style={{marginLeft:"10px", padding:"10px"}}>
-      <CardContent
-        style={{
-          margin:"0",
-          justifyContent: "center",
-          textAlign: "center",
-        }}
-      >
-        <Typography variant="h4" component="h2" >
-          {props.name}
-        </Typography>
-        <Typography variant="body1" component="p">
-          Total cases: {props.total}
-          <br />
-          Active cases: {props.active}
-          <br />
-          Deaths: {props.died}
-        </Typography>
-      </CardContent>
-    </Card>
-  );
+          </Typography>
+        </CardContent>
+      </Card>
+    )
+  }
+  
 }
+export default SimpleCard;
