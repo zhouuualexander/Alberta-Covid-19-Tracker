@@ -1,22 +1,24 @@
 {
   "files": {
-    "main.css": "/alberta-covid-19-tracker/static/css/main.3c9f843e.chunk.css",
-    "main.js": "/alberta-covid-19-tracker/static/js/main.8f412d61.chunk.js",
-    "main.js.map": "/alberta-covid-19-tracker/static/js/main.8f412d61.chunk.js.map",
+    "main.css": "/alberta-covid-19-tracker/static/css/main.0179bc98.chunk.css",
+    "main.js": "/alberta-covid-19-tracker/static/js/main.656800f3.chunk.js",
+    "main.js.map": "/alberta-covid-19-tracker/static/js/main.656800f3.chunk.js.map",
     "runtime-main.js": "/alberta-covid-19-tracker/static/js/runtime-main.a7e4f3ce.js",
     "runtime-main.js.map": "/alberta-covid-19-tracker/static/js/runtime-main.a7e4f3ce.js.map",
-    "static/js/2.f4a56a31.chunk.js": "/alberta-covid-19-tracker/static/js/2.f4a56a31.chunk.js",
-    "static/js/2.f4a56a31.chunk.js.map": "/alberta-covid-19-tracker/static/js/2.f4a56a31.chunk.js.map",
+    "static/js/2.f8dda096.chunk.js": "/alberta-covid-19-tracker/static/js/2.f8dda096.chunk.js",
+    "static/js/2.f8dda096.chunk.js.map": "/alberta-covid-19-tracker/static/js/2.f8dda096.chunk.js.map",
     "index.html": "/alberta-covid-19-tracker/index.html",
-    "precache-manifest.47f2abbdf4d517833f0c6c7c30c27fbd.js": "/alberta-covid-19-tracker/precache-manifest.47f2abbdf4d517833f0c6c7c30c27fbd.js",
+    "precache-manifest.b132ab07b313346c7d97a91b028a9564.js": "/alberta-covid-19-tracker/precache-manifest.b132ab07b313346c7d97a91b028a9564.js",
     "service-worker.js": "/alberta-covid-19-tracker/service-worker.js",
-    "static/css/main.3c9f843e.chunk.css.map": "/alberta-covid-19-tracker/static/css/main.3c9f843e.chunk.css.map",
-    "static/js/2.f4a56a31.chunk.js.LICENSE.txt": "/alberta-covid-19-tracker/static/js/2.f4a56a31.chunk.js.LICENSE.txt"
+    "static/css/main.0179bc98.chunk.css.map": "/alberta-covid-19-tracker/static/css/main.0179bc98.chunk.css.map",
+    "static/js/2.f8dda096.chunk.js.LICENSE.txt": "/alberta-covid-19-tracker/static/js/2.f8dda096.chunk.js.LICENSE.txt",
+    "static/media/calgary_final_revised.jpg": "/alberta-covid-19-tracker/static/media/calgary_final_revised.b96e6bf0.jpg",
+    "static/media/edmonton-banner.jpg": "/alberta-covid-19-tracker/static/media/edmonton-banner.37de0d12.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.a7e4f3ce.js",
-    "static/js/2.f4a56a31.chunk.js",
-    "static/css/main.3c9f843e.chunk.css",
-    "static/js/main.8f412d61.chunk.js"
+    "static/js/2.f8dda096.chunk.js",
+    "static/css/main.0179bc98.chunk.css",
+    "static/js/main.656800f3.chunk.js"
   ]
 }
