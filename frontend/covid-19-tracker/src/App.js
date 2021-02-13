@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import MapContainer from "./components/dataVisualize/map";
 import OtherInformation from "./components/otherinformation";
 import ImgMediaCard from "./components/imgMediaCard";
+import Container from '@material-ui/core/Container';
 
 class Copyright extends React.Component {
   constructor(props) {
@@ -122,7 +123,7 @@ function App() {
   /*---------------------------------Array has been finalized-----------------------*/
   var array = finalizeArray(abData, uniqueArray);
   if (array.length === 0) return null;
-  console.log(array);
+
   var oldarray = finalizeArray(abOlddata, uniqueOldArray);
 
   //city location
@@ -290,7 +291,7 @@ function App() {
 
   return (
     <div>
-      <Grid alignContent={'center'} >
+      <Container alignContent={'center'} >
         <Box display="flex" my={2} justifyContent="center">
           <Typography variant="h1" component="h1" gutterBottom noWrap style={{fontSize:"4vw"}}>
             Alberta Covid-19 Tracker
@@ -333,7 +334,7 @@ function App() {
        
        
         <Copyright />
-        </Grid>
+        </Container>
     </div>
   );
 }

@@ -28,8 +28,8 @@ export default function ImgMediaCard(props) {
     {props.array.map(function (zone) {
       if(zone["alberta_health_services_zone"]==="Edmonton Zone"){
         return (
-          <Card className={classes.root}>
-          <CardActionArea>
+          <Card className={classes.root} >
+          <CardActionArea disabled>
             <CardMedia
               component="img"
               alt="Edmonton Zone"
@@ -67,7 +67,7 @@ export default function ImgMediaCard(props) {
       if(zone["alberta_health_services_zone"]==="Calgary Zone"){
         return (
           <Card className={classes.root}>
-          <CardActionArea>
+          <CardActionArea disabled>
             <CardMedia
               component="img"
               alt="Calgary Zone"
@@ -80,7 +80,7 @@ export default function ImgMediaCard(props) {
                 {zone["alberta_health_services_zone"]}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                {"Total cases"} {zone["total case"]}
+                {"Total cases"} {"  "}{zone["total case"]}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 {"Active cases"} {zone["total active"]}
