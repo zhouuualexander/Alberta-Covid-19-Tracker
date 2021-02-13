@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b88f534dc87c4bbc5b1de85113042018",
+    "revision": "45dcd4206ca3d3b4d8af43195c83c993",
     "url": "/alberta-covid-19-tracker/index.html"
   },
   {
-    "revision": "b33103695441ce8f1ed7",
+    "revision": "3b4ece42a13e9c55bcd6",
     "url": "/alberta-covid-19-tracker/static/css/main.0179bc98.chunk.css"
   },
   {
-    "revision": "c91542b5076f0d2f3f58",
-    "url": "/alberta-covid-19-tracker/static/js/2.f8dda096.chunk.js"
+    "revision": "0e3de099e1796d2b9352",
+    "url": "/alberta-covid-19-tracker/static/js/2.807e64bb.chunk.js"
   },
   {
     "revision": "0749163b59fbee32225059cb60c18af6",
-    "url": "/alberta-covid-19-tracker/static/js/2.f8dda096.chunk.js.LICENSE.txt"
+    "url": "/alberta-covid-19-tracker/static/js/2.807e64bb.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b33103695441ce8f1ed7",
-    "url": "/alberta-covid-19-tracker/static/js/main.656800f3.chunk.js"
+    "revision": "3b4ece42a13e9c55bcd6",
+    "url": "/alberta-covid-19-tracker/static/js/main.7c47b394.chunk.js"
   },
   {
     "revision": "1f20b713a2693adbf600",
