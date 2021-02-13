@@ -8,7 +8,7 @@ const CityInformation = function (props) {
         {props.array.map(function (zone) {
           if(zone["alberta_health_services_zone"]==="Edmonton Zone"||zone["alberta_health_services_zone"]==="Calgary Zone"){
             return (
-              <Card
+              <Card 
                 name={zone["alberta_health_services_zone"]}
                 total={zone["total case"]}
                 active={zone["total active"]}

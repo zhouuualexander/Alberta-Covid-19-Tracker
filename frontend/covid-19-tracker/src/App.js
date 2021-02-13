@@ -1,17 +1,14 @@
 import "moment-timezone";
 import React, { useState, useEffect } from "react";
 import CityInformation from "./components/cityInformation";
-import Header from "./components/header";
 import "./App.css";
-import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Link from "@material-ui/core/Link";
 import Grid from '@material-ui/core/Grid';
-import ScopedCssBaseline from "@material-ui/core/ScopedCssBaseline";
-
 import MapContainer from "./components/dataVisualize/map";
 import OtherInformation from "./components/otherinformation";
+import ImgMediaCard from "./components/imgMediaCard";
 
 class Copyright extends React.Component {
   constructor(props) {
@@ -295,23 +292,26 @@ function App() {
     <div>
       <Grid alignContent={'center'} >
         <Box display="flex" my={2} justifyContent="center">
-          <Typography variant="h1" component="h1" gutterBottom noWrap>
+          <Typography variant="h1" component="h1" gutterBottom noWrap style={{fontSize:"4vw"}}>
             Alberta Covid-19 Tracker
           </Typography>
         </Box>
         <Box display="flex" justifyContent="center">
-          <Typography variant="h4" component="h1" gutterBottom noWrap>
+          <Typography variant="h4" component="h1" gutterBottom noWrap style={{fontSize:"2vw"}}>
             Alberta total: {abData.length}
           </Typography>
         </Box>
         <Box display="flex" justifyContent="center">
-          <Typography variant="h4" component="h1" gutterBottom noWrap>
+          <Typography variant="h4" component="h1" gutterBottom noWrap style={{fontSize:"2vw"}}>
             Alberta today increased cases: {abData.length - abOlddata.length}
           </Typography>
         </Box>
-        <Box display="flex" justifyContent="center">
-          <CityInformation array={array} />
+        <Box display="flex"  justifyContent="center" marginLeft="auto">
+        <ImgMediaCard array={array}/>
         </Box>
+        {/* <Box display="flex" justifyContent="center" >
+          <CityInformation array={array} />
+        </Box> */}
         <Box display="flex" justifyContent="center" marginTop={1} marginLeft="auto" marginRight="auto">
           <OtherInformation array={array} />
         </Box>
@@ -329,7 +329,9 @@ function App() {
             Yellow circle: Calgary Active Cases
           </Typography>
         </Box>
-
+       
+       
+       
         <Copyright />
         </Grid>
     </div>

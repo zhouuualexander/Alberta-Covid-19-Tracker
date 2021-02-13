@@ -7,12 +7,13 @@ import { Autocomplete } from "@react-google-maps/api";
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 300,
-    height: 'auto',
+    
+    minWidth:100,
     marginLeft: 10,
     marginTop: 10,
     marginBottom: 10,
-    marginRight:10
+    marginRight:10,
+    
   },
   bullet: {
     display: "inline-block",
@@ -33,11 +34,11 @@ const SimpleCard = function(props) {
     return (
     
       <Card className={classes.root} >
-        <CardContent style={{margin:"0",justifyContent: "center",textAlign: "center",}}>
-          <Typography variant="h4" component="h2" >
+        <CardContent style={{margin:"0",justifyContent: "center",textAlign: "center",fontSize:"3vw"}}>
+          <Typography variant="h4" component="h2" style={{fontSize:"2vw"}}>
             {props.name}
           </Typography>
-          <Typography variant="body1" component="p">
+          <Typography variant="body1" component="p" style={{fontSize:"1vw"}}>
             Total cases: {props.total}
             <br />
             Active cases: {props.active}
@@ -52,10 +53,10 @@ const SimpleCard = function(props) {
     return(
       <Card className={classes.root} >
         <CardContent style={{margin:"0",justifyContent: "center",textAlign: "center",}}>
-          <Typography variant="h4" component="h2" >
+          <Typography variant="h4" component="h2" style={{fontSize:"2vw"}}>
             {props.name}
           </Typography>
-          <Typography variant="body1" component="p">
+          <Typography variant="body1" component="p" style={{fontSize:"1vw"}}>
             Total cases: {props.total}
 
           </Typography>
