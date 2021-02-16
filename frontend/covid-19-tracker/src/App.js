@@ -1,33 +1,14 @@
 import "moment-timezone";
 import React, { useState, useEffect } from "react";
-import CityInformation from "./components/cityInformation";
 import "./App.css";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import Link from "@material-ui/core/Link";
-import Grid from '@material-ui/core/Grid';
 import MapContainer from "./components/dataVisualize/map";
 import OtherInformation from "./components/otherinformation";
 import ImgMediaCard from "./components/imgMediaCard";
-import Container from '@material-ui/core/Container';
+import Container from "@material-ui/core/Container";
+import Copyright from "./components/copyright";
 
-class Copyright extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <Typography variant="body2" color="textSecondary" align="center">
-        {"Copyright © "}
-        <Link color="inherit" href="https://www.linkedin.cn/in/zijian-zhou/">
-          {"Zijian Zhou"}
-        </Link>{" "}
-        {new Date().getFullYear()}
-        {"."}
-      </Typography>
-    );
-  }
-}
 function App() {
   /***********get data from API ******************************************************8 */
   var albertaData = [];
@@ -41,14 +22,14 @@ function App() {
    */
 
   function getYesterdaysDate() {
-    var date = new Date();
+    let date = new Date();
     date.setDate(date.getDate() - 2);
     return (
       date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
     );
   }
 
-  var yesterday = getYesterdaysDate();
+  let yesterday = getYesterdaysDate();
 
   useEffect(() => {
     fetch(
@@ -78,33 +59,30 @@ function App() {
       .then((resp) => resp.json())
       .then((resp) => setabOlddata(resp))
       .catch((error) => console.log(error));
-  }, []);
+  }, [yesterday]);
   /*----------------------------------------removeDuplicates-------------------------*/
   function removeDuplicates(originalArray, prop) {
-    var newArray = [];
-    var lookupObject = {};
-    for (var i in originalArray) {
+    let newArray = [];
+    let lookupObject = {};
+    for (let i in originalArray) {
       lookupObject[originalArray[i][prop]] = originalArray[i];
     }
-    for (i in lookupObject) {
+    for (let i in lookupObject) {
       newArray.push(lookupObject[i]);
     }
     return newArray;
   }
   //reference:https://stackoverflow.com/questions/2218999/remove-duplicates-from-an-array-of-objects-in-javascript
-  var uniqueArray = removeDuplicates(abData, "alberta_health_services_zone");
-  var uniqueOldArray = removeDuplicates(
-    abOlddata,
-    "alberta_health_services_zone"
-  );
+  let uniqueArray = removeDuplicates(abData, "alberta_health_services_zone");
+
   /*--------------------------------------Finalize the array-------------------------*/
   function finalizeArray(originalArray, uniqueArray) {
-    var finalArray = [];
+    let finalArray = [];
     for (let i = 0; i < uniqueArray.length; i++) {
-      var newObject = {};
+      let newObject = {};
       newObject["alberta_health_services_zone"] =
         uniqueArray[i]["alberta_health_services_zone"];
-      var zoneArray = originalArray.filter(
+      let zoneArray = originalArray.filter(
         (city) =>
           city["alberta_health_services_zone"] ===
           uniqueArray[i]["alberta_health_services_zone"]
@@ -121,10 +99,8 @@ function App() {
     return finalArray;
   }
   /*---------------------------------Array has been finalized-----------------------*/
-  var array = finalizeArray(abData, uniqueArray);
+  let array = finalizeArray(abData, uniqueArray);
   if (array.length === 0) return null;
-
-  var oldarray = finalizeArray(abOlddata, uniqueOldArray);
 
   //city location
   const edmonton = {
@@ -291,29 +267,55 @@ function App() {
 
   return (
     <div>
-      <Container alignContent={'center'} >
-        <Box display="flex" my={2} justifyContent="center">
-          <Typography variant="h1" component="h1" gutterBottom noWrap style={{fontSize:"4vw"}}>
+      <Container disableGutters={true} maxWidth={false} style={{backgroundColor:"#2B588E" ,overflow:"scroll",minHeight:"100vh"}} >
+        <Box display="flex"  justifyContent="center" bgcolor="#AEC6EC" height="auto" alignItems="center" >
+          <Typography
+            variant="h1"
+            component="h1"
+            gutterBottom={false}
+            noWrap
+            align={"center"}
+            style={{ fontSize: "2vw" ,height:"auto",marginTop:"20px",marginBottom:"20px" ,color:"#2B588E"}}
+            
+          >
             Alberta Covid-19 Tracker
           </Typography>
         </Box>
         <Box display="flex" justifyContent="center">
-          <Typography variant="h4" component="h1" gutterBottom noWrap style={{fontSize:"2vw"}}>
+          <Typography
+            variant="h4"
+            component="h1"
+            gutterBottom={false}
+            noWrap
+            style={{ fontSize: "1vw" ,color:"#AEC6EC",marginTop:"10px"}}
+          >
             Alberta total: {abData.length}
           </Typography>
         </Box>
         <Box display="flex" justifyContent="center">
-          <Typography variant="h4" component="h1" gutterBottom noWrap style={{fontSize:"2vw"}}>
+          <Typography
+            variant="h4"
+            component="h1"
+            gutterBottom
+            noWrap
+            style={{ fontSize: "1vw" ,color:"#AEC6EC"}}
+          >
             Alberta today increased cases: {abData.length - abOlddata.length}
           </Typography>
         </Box>
-        <Box display="flex"  justifyContent="center" marginLeft="auto">
-        <ImgMediaCard array={array}/>
+        <Box display="flex" justifyContent="center" marginLeft="auto">
+          <ImgMediaCard array={array} />
         </Box>
         {/* <Box display="flex" justifyContent="center" >
           <CityInformation array={array} />
         </Box> */}
-        <Box display="flex" justifyContent="center" marginTop={1} marginLeft="auto" marginRight="auto">
+        <Box
+          display="flex"
+          justifyContent="center"
+          marginTop={1}
+          marginLeft="auto"
+          marginRight="auto"
+        >
           <OtherInformation array={array} />
         </Box>
         <Box display="flex" justifyContent="center" marginTop={1}>
@@ -321,20 +323,18 @@ function App() {
         </Box>
 
         <Box display="flex" my={1} justifyContent="left" marginLeft={"10%"}>
-          <Typography variant="h6" component="h1" gutterBottom noWrap>
+          <Typography variant="h6" component="h1" gutterBottom noWrap style={{color:"#AEC6EC"}}>
             Pink circle: Edmonton Active Cases{" "}
           </Typography>
         </Box>
-        <Box display="flex"  justifyContent="left" marginLeft={"10%"}>
-          <Typography variant="h6" component="h1" gutterBottom noWrap>
+        <Box display="flex" justifyContent="left" marginLeft={"10%"}>
+          <Typography variant="h6" component="h1" gutterBottom noWrap style={{color:"#AEC6EC"}}>
             Yellow circle: Calgary Active Cases
           </Typography>
         </Box>
-       
-       
-       
+
         <Copyright />
-        </Container>
+      </Container>
     </div>
   );
 }

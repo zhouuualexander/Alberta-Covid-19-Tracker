@@ -44,8 +44,9 @@ const MapContainer = (props) => {
           {props.cities.map(function (city) {
            
             return (
-              <div>
+              <div  key={city[0]["lat"]}>
               <Circle
+             
               // optional
              
               // required

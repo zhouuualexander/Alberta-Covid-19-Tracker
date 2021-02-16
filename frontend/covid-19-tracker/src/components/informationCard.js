@@ -3,17 +3,14 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import { Autocomplete } from "@react-google-maps/api";
 
 const useStyles = makeStyles({
   root: {
-    
-    minWidth:100,
+    minWidth: 260,
     marginLeft: 10,
     marginTop: 10,
     marginBottom: 10,
-    marginRight:10,
-    
+    marginRight: 10,
   },
   bullet: {
     display: "inline-block",
@@ -28,17 +25,24 @@ const useStyles = makeStyles({
   },
 });
 
-const SimpleCard = function(props) {
+const SimpleCard = function (props) {
   const classes = useStyles();
-  if(props.name=="Edmonton Zone"||props.name=="Calgary Zone"){
+  if (props.name === "Edmonton Zone" || props.name === "Calgary Zone") {
     return (
-    
-      <Card className={classes.root} >
-        <CardContent style={{margin:"0",justifyContent: "center",textAlign: "center",fontSize:"3vw"}}>
-          <Typography variant="h4" component="h2" style={{fontSize:"2vw"}}>
+      <Card className={classes.root}>
+        <CardContent
+          style={{
+            margin: "0",
+            justifyContent: "center",
+            textAlign: "center",
+            fontSize: "3vw",
+            backgroundColor:"#AEC6EC"
+          }}
+        >
+          <Typography variant="h4" component="h2" style={{ fontSize: "2vw" }}>
             {props.name}
           </Typography>
-          <Typography variant="body1" component="p" style={{fontSize:"1vw"}}>
+          <Typography variant="body1" component="p" style={{ fontSize: "1vw" }}>
             Total cases: {props.total}
             <br />
             Active cases: {props.active}
@@ -48,22 +52,21 @@ const SimpleCard = function(props) {
         </CardContent>
       </Card>
     );
-  }
-  else{
-    return(
-      <Card className={classes.root} >
-        <CardContent style={{margin:"0",justifyContent: "center",textAlign: "center",}}>
-          <Typography variant="h4" component="h2" style={{fontSize:"2vw"}}>
+  } else {
+    return (
+      <Card className={classes.root}>
+        <CardContent
+          style={{ margin: "0", justifyContent: "center", textAlign: "center",backgroundColor:"#AEC6EC",color:"#2B588E"}}
+        >
+          <Typography variant="h5" component="h2" >
             {props.name}
           </Typography>
-          <Typography variant="body1" component="p" style={{fontSize:"1vw"}}>
+          <Typography variant="body2" color="textSecondary" component="p">
             Total cases: {props.total}
-
           </Typography>
         </CardContent>
       </Card>
-    )
+    );
   }
-  
-}
+};
 export default SimpleCard;
