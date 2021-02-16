@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/alberta-covid-19-tracker/precache-manifest.764d0bc451e3144c6704950be7d412bf.js"
+  "/alberta-covid-19-tracker/precache-manifest.1e8855452a6f25510f49ede3d829e33e.js"
 );
 
 self.addEventListener('message', (event) => {
