@@ -28,7 +28,7 @@ export default function ImgMediaCard(props) {
     {props.array.map((zone)=> {
       if(zone["alberta_health_services_zone"]==="Edmonton Zone" || zone["alberta_health_services_zone"]==="Calgary Zone"){
         return (
-          <Card className={classes.root} key={zone["alberta_health_services_zone"]}  style={{backgroundColor:"#AEC6EC",color:"#2B588E"}}>
+          <Card className={classes.root} key={zone["alberta_health_services_zone"]}  >
           <CardActionArea disabled >
             <CardMedia
               

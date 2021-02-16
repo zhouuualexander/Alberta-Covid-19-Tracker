@@ -56,7 +56,7 @@ const SimpleCard = function (props) {
     return (
       <Card className={classes.root}>
         <CardContent
-          style={{ margin: "0", justifyContent: "center", textAlign: "center",backgroundColor:"#AEC6EC",color:"#2B588E"}}
+          style={{ margin: "0", justifyContent: "center", textAlign: "center"}}
         >
           <Typography variant="h5" component="h2" >
             {props.name}

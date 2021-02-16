@@ -7,7 +7,7 @@ class Copyright extends React.Component {
   
     render() {
       return (
-        <Typography variant="body2" color="textSecondary" align="center" style={{color:"#AEC6EC"}}>
+        <Typography variant="body2" color="textSecondary" align="center" >
           {"Copyright © "}
           <Link color="inherit" href="https://www.linkedin.cn/in/zijian-zhou/">
             {"Zijian Zhou"}

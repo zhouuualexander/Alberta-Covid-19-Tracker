@@ -266,16 +266,17 @@ function App() {
   ];
 
   return (
+    // #2B588E
     <div>
-      <Container disableGutters={true} maxWidth={false} style={{backgroundColor:"#2B588E" ,overflow:"scroll",minHeight:"100vh"}} >
-        <Box display="flex"  justifyContent="center" bgcolor="#AEC6EC" height="auto" alignItems="center" >
+      <Container disableGutters={true} maxWidth={false} style={{backgroundColor:"#ffffff" ,overflow:"scroll",minHeight:"100vh"}} >
+        <Box display="flex"  justifyContent="center" bgcolor="#3f8aac" height="auto" alignItems="center" >
           <Typography
             variant="h1"
             component="h1"
             gutterBottom={false}
             noWrap
             align={"center"}
-            style={{ fontSize: "2vw" ,height:"auto",marginTop:"20px",marginBottom:"20px" ,color:"#2B588E"}}
+            style={{ fontSize: "2vw" ,height:"auto",marginTop:"20px",marginBottom:"20px" ,color:"#e8f7fb"}}
             
           >
             Alberta Covid-19 Tracker
@@ -287,7 +288,7 @@ function App() {
             component="h1"
             gutterBottom={false}
             noWrap
-            style={{ fontSize: "1vw" ,color:"#AEC6EC",marginTop:"10px"}}
+            style={{ fontSize: "1vw" ,marginTop:"10px"}}
           >
             Alberta total: {abData.length}
           </Typography>
@@ -298,7 +299,7 @@ function App() {
             component="h1"
             gutterBottom
             noWrap
-            style={{ fontSize: "1vw" ,color:"#AEC6EC"}}
+            style={{ fontSize: "1vw"}}
           >
             Alberta today increased cases: {abData.length - abOlddata.length}
           </Typography>
@@ -322,18 +323,11 @@ function App() {
           <MapContainer cities={cities} />
         </Box>
 
-        <Box display="flex" my={1} justifyContent="left" marginLeft={"10%"}>
-          <Typography variant="h6" component="h1" gutterBottom noWrap style={{color:"#AEC6EC"}}>
-            Pink circle: Edmonton Active Cases{" "}
-          </Typography>
-        </Box>
-        <Box display="flex" justifyContent="left" marginLeft={"10%"}>
-          <Typography variant="h6" component="h1" gutterBottom noWrap style={{color:"#AEC6EC"}}>
-            Yellow circle: Calgary Active Cases
-          </Typography>
-        </Box>
-
+        <footer>
         <Copyright />
+        </footer>
+
+        
       </Container>
     </div>
   );

@@ -1,8 +1,8 @@
 import React from 'react';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
-import { Circle } from '@react-google-maps/api';
+import { Circle,Marker,InfoWindow} from '@react-google-maps/api';
 
-
+import { InfoBox } from '@react-google-maps/api';
 const MapContainer = (props) => {
   
   const mapStyles = {        
@@ -29,8 +29,10 @@ const MapContainer = (props) => {
   //   radius: 50000,
   //   zIndex: 1
   // }
-  
-
+  const center = {
+    lat: 58.545457,
+    lng: -130.843898
+  };
  
   return (
      <LoadScript
@@ -54,6 +56,19 @@ const MapContainer = (props) => {
               // required
               options={city[1]}
             />
+            {city[0]['lat']===53.5461?
+            <InfoBox  position={center}>
+            <div style={{ backgroundColor: 'white', opacity: 0.75, padding: 12 ,width:"200px"}}>
+        <div style={{ fontSize: 16, fontColor: `#08233B` }}>
+          Circle is about active cases
+        </div>
+      </div>
+            </InfoBox>:
+            null
+            }
+            
+            
+           
            
           </div>
         
