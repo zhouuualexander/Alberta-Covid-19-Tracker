@@ -268,16 +268,35 @@ function App() {
   return (
     // #2B588E
     <div>
-      <Container disableGutters={true} maxWidth={false} style={{backgroundColor:"#ffffff" ,overflow:"scroll",minHeight:"100vh"}} >
-        <Box display="flex"  justifyContent="center" bgcolor="#3f8aac" height="auto" alignItems="center" >
+      <Container
+        disableGutters={true}
+        maxWidth={false}
+        style={{
+          backgroundColor: "#ffffff",
+          overflow: "scroll",
+          minHeight: "100vh",
+        }}
+      >
+        <Box
+          display="flex"
+          justifyContent="center"
+          bgcolor="#3f8aac"
+          height="auto"
+          alignItems="center"
+        >
           <Typography
             variant="h1"
             component="h1"
             gutterBottom={false}
             noWrap
             align={"center"}
-            style={{ fontSize: "2vw" ,height:"auto",marginTop:"20px",marginBottom:"20px" ,color:"#e8f7fb"}}
-            
+            style={{
+              fontSize: "2vw",
+              height: "auto",
+              marginTop: "20px",
+              marginBottom: "20px",
+              color: "#e8f7fb",
+            }}
           >
             Alberta Covid-19 Tracker
           </Typography>
@@ -288,7 +307,7 @@ function App() {
             component="h1"
             gutterBottom={false}
             noWrap
-            style={{ fontSize: "1vw" ,marginTop:"10px"}}
+            style={{ fontSize: "1vw", marginTop: "10px" }}
           >
             Alberta total: {abData.length}
           </Typography>
@@ -299,7 +318,7 @@ function App() {
             component="h1"
             gutterBottom
             noWrap
-            style={{ fontSize: "1vw"}}
+            style={{ fontSize: "1vw" }}
           >
             Alberta today increased cases: {abData.length - abOlddata.length}
           </Typography>
@@ -324,10 +343,8 @@ function App() {
         </Box>
 
         <footer>
-        <Copyright />
+          <Copyright />
         </footer>
-
-        
       </Container>
     </div>
   );

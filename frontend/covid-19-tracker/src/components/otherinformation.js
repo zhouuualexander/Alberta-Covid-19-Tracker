@@ -19,7 +19,7 @@ const OtherInformation = function (props) {
           zone["alberta_health_services_zone"] !== "Unknown"
         ) {
           return (
-            <Card 
+            <Card
               className={classes.root}
               key={zone["alberta_health_services_zone"]}
               name={zone["alberta_health_services_zone"]}
