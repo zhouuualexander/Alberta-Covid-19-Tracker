@@ -7,3 +7,4 @@ To update the website, just simply use "npm run deploy" within the terminal
 Photo credits to: https://www.cushmanwakefield.com/en/canada/offices/edmonton
 <Br/>
 https://theculturetrip.com/north-america/canada/calgary/
+<Br/>
