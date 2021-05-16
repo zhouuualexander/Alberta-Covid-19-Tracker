@@ -1,6 +1,6 @@
 import React from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
-import { Circle, Marker, InfoWindow } from "@react-google-maps/api";
+import { Circle } from "@react-google-maps/api";
 
 import { InfoBox } from "@react-google-maps/api";
 const MapContainer = (props) => {
@@ -38,7 +38,7 @@ const MapContainer = (props) => {
     <LoadScript googleMapsApiKey="AIzaSyA3lBAg4Tn0DQvw9gJ8ZRBKV52nLzCru1E">
       <GoogleMap
         mapContainerStyle={mapStyles}
-        zoom={4.8}
+        zoom={4.5}
         center={defaultCenter}
       >
         {props.cities.map(function (city) {

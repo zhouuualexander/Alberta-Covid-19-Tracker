@@ -118,7 +118,7 @@ function App() {
     draggable: false,
     editable: false,
     visible: true,
-    radius: array[1]["total active"] * 100,
+    radius: array[1]["total active"] * 10,
     zIndex: 1,
   };
   const total_edmonton_options = {
@@ -131,7 +131,7 @@ function App() {
     draggable: false,
     editable: false,
     visible: true,
-    radius: array[1]["total case"] * 10,
+    radius: array[1]["total case"] * 100,
     zIndex: 1,
   };
 
@@ -150,7 +150,7 @@ function App() {
     draggable: false,
     editable: false,
     visible: true,
-    radius: array[0]["total active"] * 100,
+    radius: array[0]["total active"] * 10,
     zIndex: 1,
   };
   const total_calgary_options = {
@@ -163,7 +163,7 @@ function App() {
     draggable: false,
     editable: false,
     visible: true,
-    radius: array[0]["total case"] * 10,
+    radius: array[0]["total case"] * 1,
     zIndex: 1,
   };
   const north = {
@@ -180,7 +180,7 @@ function App() {
     draggable: false,
     editable: false,
     visible: true,
-    radius: array[3]["total active"] * 100,
+    radius: array[3]["total active"] * 10,
     zIndex: 1,
   };
   const total_north_options = {
@@ -193,7 +193,7 @@ function App() {
     draggable: false,
     editable: false,
     visible: true,
-    radius: array[3]["total case"] * 10,
+    radius: array[3]["total case"] * 1,
     zIndex: 1,
   };
   const south = {
@@ -210,7 +210,7 @@ function App() {
     draggable: false,
     editable: false,
     visible: true,
-    radius: array[4]["total active"] * 100,
+    radius: array[4]["total active"] * 10,
     zIndex: 1,
   };
   const total_south_options = {
@@ -223,7 +223,7 @@ function App() {
     draggable: false,
     editable: false,
     visible: true,
-    radius: array[4]["total case"] * 10,
+    radius: array[4]["total case"] * 1,
     zIndex: 1,
   };
   const central = {
@@ -240,7 +240,7 @@ function App() {
     draggable: false,
     editable: false,
     visible: true,
-    radius: array[2]["total active"] * 100,
+    radius: array[2]["total active"] * 10,
     zIndex: 1,
   };
   const total_central_options = {
@@ -253,7 +253,7 @@ function App() {
     draggable: false,
     editable: false,
     visible: true,
-    radius: array[2]["total case"] * 10,
+    radius: array[2]["total case"] * 1,
     zIndex: 1,
   };
 
