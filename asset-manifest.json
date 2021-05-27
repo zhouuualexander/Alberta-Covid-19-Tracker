@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/alberta-covid-19-tracker/static/css/main.cfda8877.chunk.css",
-    "main.js": "/alberta-covid-19-tracker/static/js/main.f097a2b2.chunk.js",
-    "main.js.map": "/alberta-covid-19-tracker/static/js/main.f097a2b2.chunk.js.map",
+    "main.js": "/alberta-covid-19-tracker/static/js/main.74f0bcc5.chunk.js",
+    "main.js.map": "/alberta-covid-19-tracker/static/js/main.74f0bcc5.chunk.js.map",
     "runtime-main.js": "/alberta-covid-19-tracker/static/js/runtime-main.a7e4f3ce.js",
     "runtime-main.js.map": "/alberta-covid-19-tracker/static/js/runtime-main.a7e4f3ce.js.map",
     "static/js/2.e585aeb7.chunk.js": "/alberta-covid-19-tracker/static/js/2.e585aeb7.chunk.js",
     "static/js/2.e585aeb7.chunk.js.map": "/alberta-covid-19-tracker/static/js/2.e585aeb7.chunk.js.map",
     "index.html": "/alberta-covid-19-tracker/index.html",
-    "precache-manifest.ca190a0a9f487e536a9183fc125c9134.js": "/alberta-covid-19-tracker/precache-manifest.ca190a0a9f487e536a9183fc125c9134.js",
+    "precache-manifest.4b0dc8f9c3435167fe6c31dcf5280760.js": "/alberta-covid-19-tracker/precache-manifest.4b0dc8f9c3435167fe6c31dcf5280760.js",
     "service-worker.js": "/alberta-covid-19-tracker/service-worker.js",
     "static/css/main.cfda8877.chunk.css.map": "/alberta-covid-19-tracker/static/css/main.cfda8877.chunk.css.map",
     "static/js/2.e585aeb7.chunk.js.LICENSE.txt": "/alberta-covid-19-tracker/static/js/2.e585aeb7.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.a7e4f3ce.js",
     "static/js/2.e585aeb7.chunk.js",
     "static/css/main.cfda8877.chunk.css",
-    "static/js/main.f097a2b2.chunk.js"
+    "static/js/main.74f0bcc5.chunk.js"
   ]
 }
