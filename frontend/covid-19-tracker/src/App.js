@@ -8,6 +8,14 @@ import OtherInformation from "./components/otherinformation";
 import ImgMediaCard from "./components/imgMediaCard";
 import Container from "@material-ui/core/Container";
 import Copyright from "./components/copyright";
+import { getYesterdaysDate } from './dataFilter';
+import { removeDuplicates } from './dataFilter';
+import { finalizeArray } from './dataFilter';
+/**
+ * /**
+ * @param {void} getYesterdaysDate - this function is help to get yesterday's date .
+ */
+
 
 function App() {
   /***********get data from API ******************************************************8 */
@@ -15,20 +23,6 @@ function App() {
   var albertaOlddata = [];
   const [abOlddata, setabOlddata] = useState(albertaOlddata);
   const [abData, setabData] = useState(albertaData);
-
-  /**
-   * /**
-   * @param {void} getYesterdaysDate - this function is help to get yesterday's date .
-   */
-
-  function getYesterdaysDate() {
-    let date = new Date();
-    date.setDate(date.getDate() - 2);
-    return (
-      date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-    );
-  }
-
   let yesterday = getYesterdaysDate();
 
   useEffect(() => {
@@ -60,44 +54,10 @@ function App() {
       .then((resp) => setabOlddata(resp))
       .catch((error) => console.log(error));
   }, [yesterday]);
-  /*----------------------------------------removeDuplicates-------------------------*/
-  function removeDuplicates(originalArray, prop) {
-    let newArray = [];
-    let lookupObject = {};
-    for (let i in originalArray) {
-      lookupObject[originalArray[i][prop]] = originalArray[i];
-    }
-    for (let i in lookupObject) {
-      newArray.push(lookupObject[i]);
-    }
-    return newArray;
-  }
-  //reference:https://stackoverflow.com/questions/2218999/remove-duplicates-from-an-array-of-objects-in-javascript
+
   let uniqueArray = removeDuplicates(abData, "alberta_health_services_zone");
 
-  /*--------------------------------------Finalize the array-------------------------*/
-  function finalizeArray(originalArray, uniqueArray) {
-    let finalArray = [];
-    for (let i = 0; i < uniqueArray.length; i++) {
-      let newObject = {};
-      newObject["alberta_health_services_zone"] =
-        uniqueArray[i]["alberta_health_services_zone"];
-      let zoneArray = originalArray.filter(
-        (city) =>
-          city["alberta_health_services_zone"] ===
-          uniqueArray[i]["alberta_health_services_zone"]
-      );
-      newObject["total case"] = zoneArray.length;
-      newObject["total active"] = zoneArray.filter(
-        (active) => active["case_status"] === "Active"
-      ).length;
-      newObject["total death"] = zoneArray.filter(
-        (death) => death["case_status"] === "Died"
-      ).length;
-      finalArray.push(newObject);
-    }
-    return finalArray;
-  }
+
   /*---------------------------------Array has been finalized-----------------------*/
   let array = finalizeArray(abData, uniqueArray);
   if (array.length === 0) return null;
