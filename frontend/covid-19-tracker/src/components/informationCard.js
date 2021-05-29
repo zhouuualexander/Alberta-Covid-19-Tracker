@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   },
 });
 
-const SimpleCard = function (props) {
+const SimpleCard = (props) => {
   const classes = useStyles();
   if (props.name === "Edmonton Zone" || props.name === "Calgary Zone") {
     return (
@@ -36,7 +36,7 @@ const SimpleCard = function (props) {
             justifyContent: "center",
             textAlign: "center",
             fontSize: "3vw",
-            backgroundColor:"#AEC6EC"
+            backgroundColor: "#AEC6EC"
           }}
         >
           <Typography variant="h4" component="h2" style={{ fontSize: "2vw" }}>
@@ -56,7 +56,7 @@ const SimpleCard = function (props) {
     return (
       <Card className={classes.root}>
         <CardContent
-          style={{ margin: "0", justifyContent: "center", textAlign: "center"}}
+          style={{ margin: "0", justifyContent: "center", textAlign: "center" }}
         >
           <Typography variant="h5" component="h2" >
             {props.name}

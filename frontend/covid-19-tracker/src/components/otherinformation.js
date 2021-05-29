@@ -8,7 +8,7 @@ const useStyles = makeStyles({
   },
 });
 
-const OtherInformation = function (props) {
+const OtherInformation = (props) => {
   const classes = useStyles();
   return (
     <React.Fragment>

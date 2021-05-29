@@ -11,10 +11,8 @@ import Copyright from "./components/copyright";
 import { getYesterdaysDate } from './dataFilter';
 import { removeDuplicates } from './dataFilter';
 import { finalizeArray } from './dataFilter';
-/**
- * /**
- * @param {void} getYesterdaysDate - this function is help to get yesterday's date .
- */
+import { locationGps } from './constant/city';
+
 
 
 function App() {
@@ -64,10 +62,6 @@ function App() {
   if (array.length === 0) return null;
 
   //city location
-  const edmonton = {
-    lat: 53.5461,
-    lng: -113.4938,
-  };
 
   const edmonton_options = {
     strokeColor: "#FF00FF",
@@ -96,11 +90,6 @@ function App() {
     zIndex: 1,
   };
 
-  const calgary = {
-    lat: 51.0447,
-    lng: -114.0719,
-  };
-
   const calgary_options = {
     strokeColor: "#FFFF00",
     strokeOpacity: 0.8,
@@ -127,23 +116,20 @@ function App() {
     radius: array[0]["total case"] * 1,
     zIndex: 1,
   };
-  const north = {
-    lat: 57.0,
-    lng: -115.0,
-  };
-  const north_options = {
-    strokeColor: "#FF0000",
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: "#FF0000",
-    fillOpacity: 0.35,
-    clickable: false,
-    draggable: false,
-    editable: false,
-    visible: true,
-    radius: array[3]["total active"] * 10,
-    zIndex: 1,
-  };
+  const
+    north_options = {
+      strokeColor: "#FF0000",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#FF0000",
+      fillOpacity: 0.35,
+      clickable: false,
+      draggable: false,
+      editable: false,
+      visible: true,
+      radius: array[3]["total active"] * 10,
+      zIndex: 1,
+    };
   const total_north_options = {
     strokeColor: "#00FF00",
     strokeOpacity: 0.8,
@@ -157,40 +143,34 @@ function App() {
     radius: array[3]["total case"] * 1,
     zIndex: 1,
   };
-  const south = {
-    lat: 50.0,
-    lng: -112.0,
-  };
-  const south_options = {
-    strokeColor: "#FF0000",
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: "#FF0000",
-    fillOpacity: 0.35,
-    clickable: false,
-    draggable: false,
-    editable: false,
-    visible: true,
-    radius: array[4]["total active"] * 10,
-    zIndex: 1,
-  };
-  const total_south_options = {
-    strokeColor: "#00FF00",
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: "#00FF00",
-    fillOpacity: 0.35,
-    clickable: false,
-    draggable: false,
-    editable: false,
-    visible: true,
-    radius: array[4]["total case"] * 1,
-    zIndex: 1,
-  };
-  const central = {
-    lat: 52.0,
-    lng: -113.29,
-  };
+  const
+    south_options = {
+      strokeColor: "#FF0000",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#FF0000",
+      fillOpacity: 0.35,
+      clickable: false,
+      draggable: false,
+      editable: false,
+      visible: true,
+      radius: array[4]["total active"] * 10,
+      zIndex: 1,
+    };
+  const
+    total_south_options = {
+      strokeColor: "#00FF00",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#00FF00",
+      fillOpacity: 0.35,
+      clickable: false,
+      draggable: false,
+      editable: false,
+      visible: true,
+      radius: array[4]["total case"] * 1,
+      zIndex: 1,
+    };
   const central_options = {
     strokeColor: "#FF0000",
     strokeOpacity: 0.8,
@@ -218,12 +198,13 @@ function App() {
     zIndex: 1,
   };
 
+
   const cities = [
-    [edmonton, edmonton_options, total_edmonton_options],
-    [calgary, calgary_options, total_calgary_options],
-    [north, north_options, total_north_options],
-    [south, south_options, total_south_options],
-    [central, central_options, total_central_options],
+    [locationGps.edmonton, edmonton_options, total_edmonton_options],
+    [locationGps.calgary, calgary_options, total_calgary_options],
+    [locationGps.north, north_options, total_north_options],
+    [locationGps.south, south_options, total_south_options],
+    [locationGps.central, central_options, total_central_options],
   ];
 
   return (
@@ -309,6 +290,6 @@ function App() {
       </Container>
     </div>
   );
-}
+};
 
 export default App;
