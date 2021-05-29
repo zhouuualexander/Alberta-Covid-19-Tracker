@@ -1,6 +1,9 @@
-export var getYesterdaysDate = () => {
+export var getYesterdaysDate = (offset) => {
+    /**
+     *  yesterday: offset=2, dayBeforeYesterday: offset = 3
+     */
     let date = new Date();
-    date.setDate(date.getDate() - 2);
+    date.setDate(date.getDate() - offset);
     return (
         date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
     );

@@ -23,7 +23,8 @@ function App() {
   var albertaOlddata = [];
   const [abOlddata, setabOlddata] = useState(albertaOlddata);
   const [abData, setabData] = useState(albertaData);
-  let yesterday = getYesterdaysDate();
+  let yesterday = getYesterdaysDate(2);
+  let dayBeforeYesterday = getYesterdaysDate(3);
 
   useEffect(() => {
     fetch(
@@ -42,7 +43,7 @@ function App() {
   /**************************************************************************** */
   useEffect(() => {
     fetch(
-      `https://data.edmonton.ca/resource/jmcu-tz8y.json?$limit=10000000000&$where=date_reported between '2020-03-06' and '${yesterday}'&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq`,
+      `https://data.edmonton.ca/resource/jmcu-tz8y.json?$limit=10000000000&$where=date_reported between '2020-03-06' and '${dayBeforeYesterday}'&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq`,
       {
         method: "GET",
         headers: {
@@ -53,7 +54,7 @@ function App() {
       .then((resp) => resp.json())
       .then((resp) => setabOlddata(resp))
       .catch((error) => console.log(error));
-  }, [yesterday]);
+  }, [dayBeforeYesterday]);
 
   let uniqueArray = removeDuplicates(abData, "alberta_health_services_zone");
 
@@ -280,7 +281,7 @@ function App() {
             noWrap
             style={{ fontSize: "1vw" }}
           >
-            Alberta today increased cases: {abData.length - abOlddata.length}
+            Alberta increased cases: {abData.length - abOlddata.length} on {yesterday}
           </Typography>
         </Box>
         <Box display="flex" justifyContent="center" marginLeft="auto">
