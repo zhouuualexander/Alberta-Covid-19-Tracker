@@ -63,61 +63,58 @@ function App() {
 
   //city location
 
-  const edmonton_options = {
-    strokeColor: "#FF00FF",
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: "#FF00FF",
-    fillOpacity: 0.35,
-    clickable: false,
-    draggable: false,
-    editable: false,
-    visible: true,
-    radius: array[1]["total active"] * 10,
-    zIndex: 1,
-  };
-  const total_edmonton_options = {
-    strokeColor: "#00FF00",
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: "#00FF00",
-    fillOpacity: 0.35,
-    clickable: false,
-    draggable: false,
-    editable: false,
-    visible: true,
-    radius: array[1]["total case"] * 100,
-    zIndex: 1,
-  };
 
-  const calgary_options = {
-    strokeColor: "#FFFF00",
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: "#FFFF00",
-    fillOpacity: 0.35,
-    clickable: false,
-    draggable: false,
-    editable: false,
-    visible: true,
-    radius: array[0]["total active"] * 10,
-    zIndex: 1,
-  };
-  const total_calgary_options = {
-    strokeColor: "#00FF00",
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: "#00FF00",
-    fillOpacity: 0.35,
-    clickable: false,
-    draggable: false,
-    editable: false,
-    visible: true,
-    radius: array[0]["total case"] * 1,
-    zIndex: 1,
-  };
-  const
-    north_options = {
+  const locationOptions = {
+    edmonton_options: {
+      strokeColor: "#FF00FF",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#FF00FF",
+      fillOpacity: 0.35,
+      clickable: false,
+      draggable: false,
+      editable: false,
+      visible: true,
+      radius: array[1]["total active"] * 10,
+      zIndex: 1,
+    },
+    total_edmonton_options: {
+      strokeColor: "#00FF00",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#00FF00",
+      fillOpacity: 0.35,
+      clickable: false,
+      draggable: false,
+      editable: false,
+      visible: true,
+      radius: array[1]["total case"] * 100,
+      zIndex: 1,
+    }, calgary_options: {
+      strokeColor: "#FFFF00",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#FFFF00",
+      fillOpacity: 0.35,
+      clickable: false,
+      draggable: false,
+      editable: false,
+      visible: true,
+      radius: array[0]["total active"] * 10,
+      zIndex: 1,
+    }, total_calgary_options: {
+      strokeColor: "#00FF00",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#00FF00",
+      fillOpacity: 0.35,
+      clickable: false,
+      draggable: false,
+      editable: false,
+      visible: true,
+      radius: array[0]["total case"] * 1,
+      zIndex: 1,
+    }, north_options: {
       strokeColor: "#FF0000",
       strokeOpacity: 0.8,
       strokeWeight: 2,
@@ -129,22 +126,19 @@ function App() {
       visible: true,
       radius: array[3]["total active"] * 10,
       zIndex: 1,
-    };
-  const total_north_options = {
-    strokeColor: "#00FF00",
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: "#00FF00",
-    fillOpacity: 0.35,
-    clickable: false,
-    draggable: false,
-    editable: false,
-    visible: true,
-    radius: array[3]["total case"] * 1,
-    zIndex: 1,
-  };
-  const
-    south_options = {
+    }, total_north_options: {
+      strokeColor: "#00FF00",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#00FF00",
+      fillOpacity: 0.35,
+      clickable: false,
+      draggable: false,
+      editable: false,
+      visible: true,
+      radius: array[3]["total case"] * 1,
+      zIndex: 1,
+    }, south_options: {
       strokeColor: "#FF0000",
       strokeOpacity: 0.8,
       strokeWeight: 2,
@@ -156,9 +150,7 @@ function App() {
       visible: true,
       radius: array[4]["total active"] * 10,
       zIndex: 1,
-    };
-  const
-    total_south_options = {
+    }, total_south_options: {
       strokeColor: "#00FF00",
       strokeOpacity: 0.8,
       strokeWeight: 2,
@@ -170,41 +162,41 @@ function App() {
       visible: true,
       radius: array[4]["total case"] * 1,
       zIndex: 1,
-    };
-  const central_options = {
-    strokeColor: "#FF0000",
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: "#FF0000",
-    fillOpacity: 0.35,
-    clickable: false,
-    draggable: false,
-    editable: false,
-    visible: true,
-    radius: array[2]["total active"] * 10,
-    zIndex: 1,
+    }, central_options: {
+      strokeColor: "#FF0000",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#FF0000",
+      fillOpacity: 0.35,
+      clickable: false,
+      draggable: false,
+      editable: false,
+      visible: true,
+      radius: array[2]["total active"] * 10,
+      zIndex: 1,
+    }, total_central_options: {
+      strokeColor: "#00FF00",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#00FF00",
+      fillOpacity: 0.35,
+      clickable: false,
+      draggable: false,
+      editable: false,
+      visible: true,
+      radius: array[2]["total case"] * 1,
+      zIndex: 1,
+    }
   };
-  const total_central_options = {
-    strokeColor: "#00FF00",
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: "#00FF00",
-    fillOpacity: 0.35,
-    clickable: false,
-    draggable: false,
-    editable: false,
-    visible: true,
-    radius: array[2]["total case"] * 1,
-    zIndex: 1,
-  };
+
 
 
   const cities = [
-    [locationGps.edmonton, edmonton_options, total_edmonton_options],
-    [locationGps.calgary, calgary_options, total_calgary_options],
-    [locationGps.north, north_options, total_north_options],
-    [locationGps.south, south_options, total_south_options],
-    [locationGps.central, central_options, total_central_options],
+    [locationGps.edmonton, locationOptions.edmonton_options, locationOptions.total_edmonton_options],
+    [locationGps.calgary, locationOptions.calgary_options, locationOptions.total_calgary_options],
+    [locationGps.north, locationOptions.north_options, locationOptions.total_north_options],
+    [locationGps.south, locationOptions.south_options, locationOptions.total_south_options],
+    [locationGps.central, locationOptions.central_options, locationOptions.total_central_options],
   ];
 
   return (
