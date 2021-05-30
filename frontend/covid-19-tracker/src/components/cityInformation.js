@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../components/informationCard";
 
-const CityInformation = function (props) {
+const CityInformation = (props) => {
   return (
     <React.Fragment>
       {props.array.map(function (zone) {

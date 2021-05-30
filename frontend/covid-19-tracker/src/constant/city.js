@@ -1,6 +1,4 @@
-/**
- * Alberta five location's gps coordinates
- */
+
 export const locationGps = {
     edmonton: {
         lat: 53.5461,

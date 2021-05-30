@@ -15,7 +15,7 @@ import { locationGps } from './constant/city';
 
 
 
-function App() {
+const App = () => {
   /***********get data from API ******************************************************8 */
   var albertaData = [];
   var albertaOlddata = [];

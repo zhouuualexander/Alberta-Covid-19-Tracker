@@ -1,4 +1,4 @@
-export var getYesterdaysDate = (offset) => {
+export const getYesterdaysDate = (offset) => {
     /**
      *  yesterday: offset=2, dayBeforeYesterday: offset = 3
      */
@@ -10,7 +10,7 @@ export var getYesterdaysDate = (offset) => {
 };
 
 /*----------------------------------------removeDuplicates-------------------------*/
-export var removeDuplicates = (originalArray, prop) => {
+export const removeDuplicates = (originalArray, prop) => {
     let newArray = [];
     let lookupObject = {};
     for (let i in originalArray) {
@@ -24,7 +24,7 @@ export var removeDuplicates = (originalArray, prop) => {
 //reference:https://stackoverflow.com/questions/2218999/remove-duplicates-from-an-array-of-objects-in-javascript
 
 /*--------------------------------------Finalize the array-------------------------*/
-export var finalizeArray = (originalArray, uniqueArray) => {
+export const finalizeArray = (originalArray, uniqueArray) => {
     let finalArray = [];
     for (let i = 0; i < uniqueArray.length; i++) {
         let newObject = {};
