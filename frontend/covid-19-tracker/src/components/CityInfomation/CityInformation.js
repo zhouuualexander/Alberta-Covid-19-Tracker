@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../components/informationCard";
+import Card from "../InformationCard/InformationCard";
 
 const CityInformation = (props) => {
   return (

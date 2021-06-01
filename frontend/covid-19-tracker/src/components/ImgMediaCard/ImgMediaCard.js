@@ -18,9 +18,7 @@ const useStyles = makeStyles({
 
   },
 });
-
-
-export default function ImgMediaCard(props) {
+const ImgMediaCard = (props) => {
   const classes = useStyles();
 
   return (
@@ -75,4 +73,5 @@ export default function ImgMediaCard(props) {
     </React.Fragment>
 
   );
-}
+};
+export default ImgMediaCard;

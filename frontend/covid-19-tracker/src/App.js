@@ -3,15 +3,15 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import MapContainer from "./components/dataVisualize/map";
-import OtherInformation from "./components/otherinformation";
-import ImgMediaCard from "./components/imgMediaCard";
+import MapContainer from "./components/MapContainer/MapContainer";
+import OtherInformation from "./components/OtherInformation/OtherInformation";
+import ImgMediaCard from "./components/ImgMediaCard/ImgMediaCard";
 import Container from "@material-ui/core/Container";
-import Copyright from "./components/copyright";
-import { getYesterdaysDate } from './dataFilter';
-import { removeDuplicates } from './dataFilter';
-import { finalizeArray } from './dataFilter';
-import { locationGps } from './constant/city';
+import Copyright from "./components/Copyright/Copyright";
+import { getYesterdaysDate } from './Helper/dataFilter';
+import { removeDuplicates } from './Helper/dataFilter';
+import { finalizeArray } from './Helper/dataFilter';
+import locationGps from './constant/city';
 
 
 

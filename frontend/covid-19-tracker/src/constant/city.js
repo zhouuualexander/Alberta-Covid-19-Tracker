@@ -1,5 +1,5 @@
 
-export const locationGps = {
+const locationGps = {
     edmonton: {
         lat: 53.5461,
         lng: -113.4938,
@@ -21,6 +21,8 @@ export const locationGps = {
         lng: -113.29,
     }
 };
+
+export default locationGps;
 
 
 

@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   },
 });
 
-const SimpleCard = (props) => {
+const InformationCard = (props) => {
   const classes = useStyles();
   if (props.name === "Edmonton Zone" || props.name === "Calgary Zone") {
     return (
@@ -69,4 +69,4 @@ const SimpleCard = (props) => {
     );
   }
 };
-export default SimpleCard;
+export default InformationCard;
