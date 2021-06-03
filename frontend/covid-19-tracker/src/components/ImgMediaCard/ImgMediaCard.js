@@ -36,8 +36,8 @@ const ImgMediaCard = (props) => {
                   height="300px"
 
                   src={zone["alberta_health_services_zone"] === "Edmonton Zone" ?
-                    require('/Users/alexzhou/Desktop/alberta-covid-19-tracker/frontend/covid-19-tracker/src/images/edmonton-banner.jpg') :
-                    require('/Users/alexzhou/Desktop/alberta-covid-19-tracker/frontend/covid-19-tracker/src/images/calgary_final_revised.jpg')}
+                    require('/Users/alexzhou/Desktop/alberta-covid-19-tracker/frontend/covid-19-tracker/src/Assets/edmonton-banner.jpg') :
+                    require('/Users/alexzhou/Desktop/alberta-covid-19-tracker/frontend/covid-19-tracker/src/Assets/calgary_final_revised.jpg')}
                   title={zone["alberta_health_services_zone"] === "Edmonton Zone" ? "Edmonton Zone" :
                     "Calgary Zone"}
                 />

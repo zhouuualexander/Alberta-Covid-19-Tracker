@@ -6,7 +6,7 @@ import { InfoBox } from "@react-google-maps/api";
 const MapContainer = (props) => {
   const mapStyles = {
     height: "30vh",
-    width: "90vh",
+    width: "100%",
     marginLeft: "auto",
     marginRight: "auto",
   };
@@ -24,7 +24,7 @@ const MapContainer = (props) => {
     <LoadScript googleMapsApiKey="AIzaSyA3lBAg4Tn0DQvw9gJ8ZRBKV52nLzCru1E">
       <GoogleMap
         mapContainerStyle={mapStyles}
-        zoom={4.5}
+        zoom={4.3}
         center={defaultCenter}
       >
         {props.cities.map(function (city) {

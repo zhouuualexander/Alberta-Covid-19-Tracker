@@ -1,19 +1,15 @@
 import "moment-timezone";
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
+import { Typography, Container, CssBaseline, AppBar, Toolbar, Grid } from "@material-ui/core";
+import TrendingDownIcon from '@material-ui/icons/TrendingDown';
 import MapContainer from "./components/MapContainer/MapContainer";
 import OtherInformation from "./components/OtherInformation/OtherInformation";
 import ImgMediaCard from "./components/ImgMediaCard/ImgMediaCard";
-import Container from "@material-ui/core/Container";
 import Copyright from "./components/Copyright/Copyright";
-import { getYesterdaysDate } from './Helper/dataFilter';
-import { removeDuplicates } from './Helper/dataFilter';
+import { getYesterdaysDate, removeDuplicates } from './Helper/dataFilter';
 import { finalizeArray } from './Helper/dataFilter';
 import locationGps from './constant/city';
-
-
 
 const App = () => {
   /***********get data from API ******************************************************8 */
@@ -62,8 +58,6 @@ const App = () => {
   if (array.length === 0) return null;
 
   //city location
-
-
   const locationOptions = {
     edmonton_options: {
       strokeColor: "#FF00FF",
@@ -75,7 +69,7 @@ const App = () => {
       draggable: false,
       editable: false,
       visible: true,
-      radius: array[1]["total active"] * 10,
+      radius: array[1]["total active"] * 100,
       zIndex: 1,
     },
     total_edmonton_options: {
@@ -88,7 +82,7 @@ const App = () => {
       draggable: false,
       editable: false,
       visible: true,
-      radius: array[1]["total case"] * 100,
+      radius: array[1]["total case"] * 1000,
       zIndex: 1,
     }, calgary_options: {
       strokeColor: "#FFFF00",
@@ -100,7 +94,7 @@ const App = () => {
       draggable: false,
       editable: false,
       visible: true,
-      radius: array[0]["total active"] * 10,
+      radius: array[0]["total active"] * 100,
       zIndex: 1,
     }, total_calgary_options: {
       strokeColor: "#00FF00",
@@ -112,7 +106,7 @@ const App = () => {
       draggable: false,
       editable: false,
       visible: true,
-      radius: array[0]["total case"] * 1,
+      radius: array[0]["total case"] * 10,
       zIndex: 1,
     }, north_options: {
       strokeColor: "#FF0000",
@@ -124,7 +118,7 @@ const App = () => {
       draggable: false,
       editable: false,
       visible: true,
-      radius: array[3]["total active"] * 10,
+      radius: array[3]["total active"] * 100,
       zIndex: 1,
     }, total_north_options: {
       strokeColor: "#00FF00",
@@ -136,7 +130,7 @@ const App = () => {
       draggable: false,
       editable: false,
       visible: true,
-      radius: array[3]["total case"] * 1,
+      radius: array[3]["total case"] * 10,
       zIndex: 1,
     }, south_options: {
       strokeColor: "#FF0000",
@@ -148,7 +142,7 @@ const App = () => {
       draggable: false,
       editable: false,
       visible: true,
-      radius: array[4]["total active"] * 10,
+      radius: array[4]["total active"] * 100,
       zIndex: 1,
     }, total_south_options: {
       strokeColor: "#00FF00",
@@ -160,7 +154,7 @@ const App = () => {
       draggable: false,
       editable: false,
       visible: true,
-      radius: array[4]["total case"] * 1,
+      radius: array[4]["total case"] * 10,
       zIndex: 1,
     }, central_options: {
       strokeColor: "#FF0000",
@@ -172,7 +166,7 @@ const App = () => {
       draggable: false,
       editable: false,
       visible: true,
-      radius: array[2]["total active"] * 10,
+      radius: array[2]["total active"] * 100,
       zIndex: 1,
     }, total_central_options: {
       strokeColor: "#00FF00",
@@ -184,7 +178,7 @@ const App = () => {
       draggable: false,
       editable: false,
       visible: true,
-      radius: array[2]["total case"] * 1,
+      radius: array[2]["total case"] * 10,
       zIndex: 1,
     }
   };
@@ -198,89 +192,43 @@ const App = () => {
     [locationGps.south, locationOptions.south_options, locationOptions.total_south_options],
     [locationGps.central, locationOptions.central_options, locationOptions.total_central_options],
   ];
-
   return (
     // #2B588E
-    <div>
-      <Container
-        disableGutters={true}
-        maxWidth={false}
-        style={{
-          backgroundColor: "#ffffff",
-          overflow: "scroll",
-          minHeight: "100vh",
-        }}
-      >
-        <Box
-          display="flex"
-          justifyContent="center"
-          bgcolor="#3f8aac"
-          height="auto"
-          alignItems="center"
-        >
-          <Typography
-            variant="h1"
-            component="h1"
-            gutterBottom={false}
-            noWrap
-            align={"center"}
-            style={{
-              fontSize: "2vw",
-              height: "auto",
-              marginTop: "20px",
-              marginBottom: "20px",
-              color: "#e8f7fb",
-            }}
-          >
-            Alberta Covid-19 Tracker
-          </Typography>
-        </Box>
-        <Box display="flex" justifyContent="center">
-          <Typography
-            variant="h4"
-            component="h1"
-            gutterBottom={false}
-            noWrap
-            style={{ fontSize: "1vw", marginTop: "10px" }}
-          >
+    <React.Fragment>
+      <CssBaseline />
+      <AppBar position="relative" color="primary" >
+        <Toolbar style={{ marginLeft: "10%" }}>
+          <TrendingDownIcon fontSize="large" style={{ marginRight: "1%" }} />
+          <Typography variant="h4" noWrap color="inherit">
+            Alberta COVID-19 Tracker
+      </Typography>
+        </Toolbar>
+      </AppBar>
+      <main>
+        <Container maxWidth='md'>
+          <Typography variant="h5" align="center" color="textPrimary" style={{ marginTop: "2%" }}>
             Alberta total: {abData.length}
           </Typography>
-        </Box>
-        <Box display="flex" justifyContent="center">
-          <Typography
-            variant="h4"
-            component="h1"
-            gutterBottom
-            noWrap
-            style={{ fontSize: "1vw" }}
-          >
+          <Typography variant="h5" align="center" color="textPrimary">
             Alberta increased cases: {abData.length - abOlddata.length} on {yesterday}
           </Typography>
-        </Box>
-        <Box display="flex" justifyContent="center" marginLeft="auto">
-          <ImgMediaCard array={array} />
-        </Box>
-        {/* <Box display="flex" justifyContent="center" >
-          <CityInformation array={array} />
-        </Box> */}
-        <Box
-          display="flex"
-          justifyContent="center"
-          marginTop={1}
-          marginLeft="auto"
-          marginRight="auto"
-        >
-          <OtherInformation array={array} />
-        </Box>
-        <Box display="flex" justifyContent="center" marginTop={1}>
+          <Grid container spacing={2} justify="center">
+            <ImgMediaCard array={array} />
+          </Grid>
+          <Grid container spacing={2} justify="center">
+            <OtherInformation array={array} />
+          </Grid>
+        </Container>
+        <Container maxWidth='md'>
           <MapContainer cities={cities} />
-        </Box>
+        </Container>
 
-        <footer>
-          <Copyright />
-        </footer>
-      </Container>
-    </div>
+
+      </main>
+      <footer>
+        <Copyright />
+      </footer>
+    </React.Fragment >
   );
 };
 
