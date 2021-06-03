@@ -1,15 +1,14 @@
 import "moment-timezone";
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { Typography, Container, CssBaseline, AppBar, Toolbar, Grid } from "@material-ui/core";
-import TrendingDownIcon from '@material-ui/icons/TrendingDown';
+import { Container, CssBaseline } from "@material-ui/core";
+import TitleBar from './components/TitleBar/TitleBar';
 import MapContainer from "./components/MapContainer/MapContainer";
-import OtherInformation from "./components/OtherInformation/OtherInformation";
-import ImgMediaCard from "./components/ImgMediaCard/ImgMediaCard";
 import Copyright from "./components/Copyright/Copyright";
 import { getYesterdaysDate, removeDuplicates } from './Helper/dataFilter';
 import { finalizeArray } from './Helper/dataFilter';
 import locationGps from './constant/city';
+import ZoneCard from './components/ZoneCard/ZoneCard';
 
 const App = () => {
   /***********get data from API ******************************************************8 */
@@ -196,34 +195,12 @@ const App = () => {
     // #2B588E
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="relative" color="primary" >
-        <Toolbar style={{ marginLeft: "10%" }}>
-          <TrendingDownIcon fontSize="large" style={{ marginRight: "1%" }} />
-          <Typography variant="h4" noWrap color="inherit">
-            Alberta COVID-19 Tracker
-      </Typography>
-        </Toolbar>
-      </AppBar>
+      <TitleBar />
       <main>
-        <Container maxWidth='md'>
-          <Typography variant="h5" align="center" color="textPrimary" style={{ marginTop: "2%" }}>
-            Alberta total: {abData.length}
-          </Typography>
-          <Typography variant="h5" align="center" color="textPrimary">
-            Alberta increased cases: {abData.length - abOlddata.length} on {yesterday}
-          </Typography>
-          <Grid container spacing={2} justify="center">
-            <ImgMediaCard array={array} />
-          </Grid>
-          <Grid container spacing={2} justify="center">
-            <OtherInformation array={array} />
-          </Grid>
-        </Container>
+        <ZoneCard data={abData} oldData={abOlddata} yesterday={yesterday} array={array} />
         <Container maxWidth='md'>
           <MapContainer cities={cities} />
         </Container>
-
-
       </main>
       <footer>
         <Copyright />

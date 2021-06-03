@@ -29,12 +29,10 @@ const ImgMediaCard = (props) => {
             <Card className={classes.root} key={zone["alberta_health_services_zone"]}  >
               <CardActionArea disabled >
                 <CardMedia
-
                   component="img"
                   alt={zone["alberta_health_services_zone"] === "Edmonton Zone" ? "Edmonton Zone" :
                     "Calgary Zone"}
                   height="300px"
-
                   src={zone["alberta_health_services_zone"] === "Edmonton Zone" ?
                     require('/Users/alexzhou/Desktop/alberta-covid-19-tracker/frontend/covid-19-tracker/src/Assets/edmonton-banner.jpg') :
                     require('/Users/alexzhou/Desktop/alberta-covid-19-tracker/frontend/covid-19-tracker/src/Assets/calgary_final_revised.jpg')}
@@ -58,10 +56,9 @@ const ImgMediaCard = (props) => {
 
               </CardActionArea>
               <CardActions>
-
                 <Button size="small" color="primary" target="_blank" href="https://www.edmonton.ca/programs_services/emergency_preparedness/covid-19.aspx">
-                  Learn More
-            </Button>
+                  More info @ {zone["alberta_health_services_zone"]}
+                </Button>
               </CardActions>
             </Card>
           );

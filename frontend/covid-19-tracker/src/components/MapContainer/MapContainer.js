@@ -7,10 +7,7 @@ const MapContainer = (props) => {
   const mapStyles = {
     height: "30vh",
     width: "100%",
-    marginLeft: "auto",
-    marginRight: "auto",
   };
-
   const defaultCenter = {
     lat: 54.861,
     lng: -116.4938,
@@ -19,7 +16,6 @@ const MapContainer = (props) => {
     lat: 58.545457,
     lng: -130.843898,
   };
-
   return (
     <LoadScript googleMapsApiKey="AIzaSyA3lBAg4Tn0DQvw9gJ8ZRBKV52nLzCru1E">
       <GoogleMap
