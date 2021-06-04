@@ -1,15 +1,9 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Card from "../InformationCard/InformationCard";
-const useStyles = makeStyles({
-  root: {
-    display: "flex",
-    justifyContent: "left",
-  },
-});
+
 
 const OtherInformation = (props) => {
-  const classes = useStyles();
+
   return (
     <React.Fragment>
       {props.array.map((zone) => {
@@ -20,7 +14,6 @@ const OtherInformation = (props) => {
         ) {
           return (
             <Card
-              className={classes.root}
               key={zone["alberta_health_services_zone"]}
               name={zone["alberta_health_services_zone"]}
               total={zone["total case"]}

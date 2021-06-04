@@ -9,6 +9,7 @@ import { getYesterdaysDate, removeDuplicates } from './Helper/dataFilter';
 import { finalizeArray } from './Helper/dataFilter';
 import locationGps from './constant/city';
 import ZoneCard from './components/ZoneCard/ZoneCard';
+import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 
 const App = () => {
   /***********get data from API ******************************************************8 */
@@ -18,7 +19,8 @@ const App = () => {
   const [abData, setabData] = useState(albertaData);
   let yesterday = getYesterdaysDate(2);
   let dayBeforeYesterday = getYesterdaysDate(3);
-
+  let theme = createMuiTheme();
+  theme = responsiveFontSizes(theme);
   useEffect(() => {
     fetch(
       `https://data.edmonton.ca/resource/jmcu-tz8y.json?$limit=10000000000&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq`,
@@ -197,10 +199,13 @@ const App = () => {
       <CssBaseline />
       <TitleBar />
       <main>
-        <ZoneCard data={abData} oldData={abOlddata} yesterday={yesterday} array={array} />
-        <Container maxWidth='md'>
-          <MapContainer cities={cities} />
-        </Container>
+        <ThemeProvider theme={theme}>
+          <Container maxWidth='md'>
+            <ZoneCard data={abData} oldData={abOlddata} yesterday={yesterday} array={array} />
+            <MapContainer cities={cities} />
+          </Container>
+        </ThemeProvider>
+
       </main>
       <footer>
         <Copyright />

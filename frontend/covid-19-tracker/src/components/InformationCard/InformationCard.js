@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 260,
+    minWidth: 307,
     marginLeft: 10,
     marginTop: 10,
     marginBottom: 10,
@@ -31,18 +31,11 @@ const InformationCard = (props) => {
     return (
       <Card className={classes.root}>
         <CardContent
-          style={{
-            margin: "0",
-            justifyContent: "center",
-            textAlign: "center",
-            fontSize: "3vw",
-            backgroundColor: "#AEC6EC"
-          }}
         >
-          <Typography variant="h4" component="h2" style={{ fontSize: "2vw" }}>
+          <Typography variant="h4" >
             {props.name}
           </Typography>
-          <Typography variant="body1" component="p" style={{ fontSize: "1vw" }}>
+          <Typography variant="body1" >
             Total cases: {props.total}
             <br />
             Active cases: {props.active}
