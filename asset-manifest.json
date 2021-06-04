@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/alberta-covid-19-tracker/static/css/main.cfda8877.chunk.css",
-    "main.js": "/alberta-covid-19-tracker/static/js/main.6f0e65d6.chunk.js",
-    "main.js.map": "/alberta-covid-19-tracker/static/js/main.6f0e65d6.chunk.js.map",
+    "main.js": "/alberta-covid-19-tracker/static/js/main.ca4a3946.chunk.js",
+    "main.js.map": "/alberta-covid-19-tracker/static/js/main.ca4a3946.chunk.js.map",
     "runtime-main.js": "/alberta-covid-19-tracker/static/js/runtime-main.a7e4f3ce.js",
     "runtime-main.js.map": "/alberta-covid-19-tracker/static/js/runtime-main.a7e4f3ce.js.map",
-    "static/js/2.ae23dacc.chunk.js": "/alberta-covid-19-tracker/static/js/2.ae23dacc.chunk.js",
-    "static/js/2.ae23dacc.chunk.js.map": "/alberta-covid-19-tracker/static/js/2.ae23dacc.chunk.js.map",
+    "static/js/2.56fe3520.chunk.js": "/alberta-covid-19-tracker/static/js/2.56fe3520.chunk.js",
+    "static/js/2.56fe3520.chunk.js.map": "/alberta-covid-19-tracker/static/js/2.56fe3520.chunk.js.map",
     "index.html": "/alberta-covid-19-tracker/index.html",
-    "precache-manifest.99bfcb01c47d9db289f32da3b4008145.js": "/alberta-covid-19-tracker/precache-manifest.99bfcb01c47d9db289f32da3b4008145.js",
+    "precache-manifest.f4e3ca73a8f5996ae2c93cd0bb829bb3.js": "/alberta-covid-19-tracker/precache-manifest.f4e3ca73a8f5996ae2c93cd0bb829bb3.js",
     "service-worker.js": "/alberta-covid-19-tracker/service-worker.js",
     "static/css/main.cfda8877.chunk.css.map": "/alberta-covid-19-tracker/static/css/main.cfda8877.chunk.css.map",
-    "static/js/2.ae23dacc.chunk.js.LICENSE.txt": "/alberta-covid-19-tracker/static/js/2.ae23dacc.chunk.js.LICENSE.txt",
+    "static/js/2.56fe3520.chunk.js.LICENSE.txt": "/alberta-covid-19-tracker/static/js/2.56fe3520.chunk.js.LICENSE.txt",
     "static/media/calgary_final_revised.jpg": "/alberta-covid-19-tracker/static/media/calgary_final_revised.b96e6bf0.jpg",
     "static/media/edmonton-banner.jpg": "/alberta-covid-19-tracker/static/media/edmonton-banner.37de0d12.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.a7e4f3ce.js",
-    "static/js/2.ae23dacc.chunk.js",
+    "static/js/2.56fe3520.chunk.js",
     "static/css/main.cfda8877.chunk.css",
-    "static/js/main.6f0e65d6.chunk.js"
+    "static/js/main.ca4a3946.chunk.js"
   ]
 }
