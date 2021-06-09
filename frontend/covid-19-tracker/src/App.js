@@ -8,6 +8,7 @@ import Copyright from "./components/Copyright/Copyright";
 import { getYesterdaysDate, removeDuplicates } from './Helper/dataFilter';
 import { finalizeArray } from './Helper/dataFilter';
 import locationGps from './constant/city';
+
 import ZoneCard from './components/ZoneCard/ZoneCard';
 import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 

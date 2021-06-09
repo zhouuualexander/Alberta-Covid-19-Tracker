@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-
+import CountUp from 'react-countup';
 const useStyles = makeStyles({
   root: {
     minWidth: 307,
@@ -55,7 +55,7 @@ const InformationCard = (props) => {
             {props.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Total cases: {props.total}
+            Total cases: {<CountUp start={0} end={props.total} duration={2.5} />}
           </Typography>
         </CardContent>
       </Card>

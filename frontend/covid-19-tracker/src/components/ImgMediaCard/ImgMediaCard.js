@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
+import CountUp from 'react-countup';
 const useStyles = makeStyles({
   root: {
     maxWidth: 400,
@@ -20,7 +20,6 @@ const useStyles = makeStyles({
 });
 const ImgMediaCard = (props) => {
   const classes = useStyles();
-
   return (
     <React.Fragment>
       {props.array.map((zone) => {
@@ -44,13 +43,13 @@ const ImgMediaCard = (props) => {
                     {zone["alberta_health_services_zone"]}
                   </Typography>
                   <Typography variant="body2" color="textSecondary" component="p" >
-                    {"Total cases"} {zone["total case"]}
+                    Total cases {<CountUp start={0} end={zone["total case"]} duration={2.5} />}
                   </Typography>
                   <Typography variant="body2" color="textSecondary" component="p" >
-                    {"Active cases"} {zone["total active"]}
+                    Active cases {<CountUp start={0} end={zone["total active"]} duration={2.5} />}
                   </Typography>
                   <Typography variant="body2" color="textSecondary" component="p" >
-                    {"Death cases"} {zone["total death"]}
+                    Death cases {<CountUp start={0} end={zone["total death"]} duration={2.5} />}
                   </Typography>
                 </CardContent>
 
