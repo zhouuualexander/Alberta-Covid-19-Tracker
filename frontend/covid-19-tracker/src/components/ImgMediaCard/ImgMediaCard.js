@@ -8,6 +8,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CountUp from 'react-countup';
+import edmonton from '../../Assets/edmonton-banner.jpg';
+import calgary from '../../Assets/calgary_final_revised.jpg';
 const useStyles = makeStyles({
   root: {
     maxWidth: 400,
@@ -39,20 +41,20 @@ const ImgMediaCard = (props) => {
   return (
     <React.Fragment>
       {cities.map((city) => {
-        return <Card className={classes.root} key={city}>
-          <CardActionArea disabled key={city}>
-            <CardMedia key={city}
+        return <Card className={classes.root} key={city.name}>
+          <CardActionArea disabled >
+            <CardMedia
               component="img"
               alt={city.name === "Edmonton" ? "Edmonton Zone" :
                 "Calgary Zone"}
               height="300px"
               src={city.name === "Edmonton" ?
-                require('/Users/alexzhou/Desktop/alberta-covid-19-tracker/frontend/covid-19-tracker/src/Assets/edmonton-banner.jpg') :
-                require('/Users/alexzhou/Desktop/alberta-covid-19-tracker/frontend/covid-19-tracker/src/Assets/calgary_final_revised.jpg')}
+                edmonton :
+                calgary}
               title={city.name === "Edmonton" ? "Edmonton Zone" :
                 "Calgary Zone"}
             />
-            <CardContent key={city} >
+            <CardContent  >
               <Typography gutterBottom variant="h5" component="h2" >
                 {city.name}
               </Typography>
@@ -72,7 +74,7 @@ const ImgMediaCard = (props) => {
           </CardActionArea>
           <CardActions>
             <Button size="small" color="primary" target="_blank" href={city.name === "Edmonton" ?
-              "https ://www.edmonton.ca/programs_services/emergency_preparedness/covid-19.aspx" :
+              "https://www.edmonton.ca/programs_services/emergency_preparedness/covid-19.aspx" :
               "https://www.calgary.ca/csps/cema/covid19/response-to-coronavirus.html"}>
               More info
           </Button>

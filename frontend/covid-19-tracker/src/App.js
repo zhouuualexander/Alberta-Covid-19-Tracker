@@ -5,18 +5,15 @@ import React, { Component } from "react";
 import "./App.css";
 import { Container, CssBaseline } from "@material-ui/core";
 import TitleBar from './components/TitleBar/TitleBar';
-import MapContainer from "./components/MapContainer/MapContainer";
 import Copyright from "./components/Copyright/Copyright";
-import { getYesterdaysDate, removeDuplicates } from './Helper/dataFilter';
-import { finalizeArray } from './Helper/dataFilter';
-import locationGps from './constant/city';
+import { getYesterdaysDate } from './Helper/dataFilter';
 import Loading from '../src/components/Loading/Loading';
 import ZoneCard from './components/ZoneCard/ZoneCard';
 import Alberta from './components/Visualization/Alberta';
 import Gender from './components/Visualization/Gender';
 import City from './components/Visualization/City';
 import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
-
+import Map from '../src/components/MapContainer/MapContainer';
 class App extends Component {
 
   state = {
@@ -33,7 +30,7 @@ class App extends Component {
     axios.get(`https://data.edmonton.ca/resource/jmcu-tz8y.json?$limit=10000000000&$where=date_reported between '2020-03-06' and '${dayBeforeYesterday}'&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq`).then((response) => {
       const albertaOldData = response.data;
       this.setState({ albertaOldData: albertaOldData });
-      console.log(albertaOldData);
+
     });
     axios.get('https://data.edmonton.ca/resource/jmcu-tz8y.json?$limit=10000000000&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq')
       .then((response) => {
@@ -51,7 +48,6 @@ class App extends Component {
         const albertaDied = albertaData.filter((data) => {
           return data['case_status'] === 'Died';
         });
-        const edmontonTotalCases = edmontonData.length;
         const edmontonRecovered = edmontonData.filter((data) => {
           return data['case_status'] === 'Recovered';
         });
@@ -120,12 +116,8 @@ class App extends Component {
       });
   }
   render() {
-    let yesterday = getYesterdaysDate(2);
-    let dayBeforeYesterday = getYesterdaysDate(3);
     let theme = createMuiTheme();
     theme = responsiveFontSizes(theme);
-    console.log(this.state.albertaData);
-
     return (
       // #2B588E
       <React.Fragment>
@@ -162,13 +154,10 @@ class App extends Component {
                   <Grid item >
                     <City edmontonData={this.state.edmontonData} calgaryData={this.state.calgaryData} />
                   </Grid>
-
-
                 </Grid>
+                <Map />
               </Container>
             }
-
-
           </ThemeProvider>
         </main>
         <footer>

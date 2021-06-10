@@ -1,60 +1,23 @@
-import React from "react";
-import { GoogleMap, LoadScript } from "@react-google-maps/api";
-import { Circle } from "@react-google-maps/api";
+import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet';
+import React from 'react';
 
-import { InfoBox } from "@react-google-maps/api";
-const MapContainer = (props) => {
-  const mapStyles = {
-    height: "30vh",
-    width: "100%",
-  };
-  const defaultCenter = {
-    lat: 54.861,
-    lng: -116.4938,
-  };
-  const center = {
-    lat: 58.545457,
-    lng: -130.843898,
-  };
+const map = (props) => {
   return (
-    <LoadScript googleMapsApiKey="AIzaSyA3lBAg4Tn0DQvw9gJ8ZRBKV52nLzCru1E">
-      <GoogleMap
-        mapContainerStyle={mapStyles}
-        zoom={4.3}
-        center={defaultCenter}
-      >
-        {props.cities.map(function (city) {
-          return (
-            <div key={city[0]["lat"]}>
-              <Circle
-                // optional
-
-                // required
-                center={city[0]}
-                // required
-                options={city[1]}
-              />
-              {city[0]["lat"] === 53.5461 ? (
-                <InfoBox position={center}>
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      opacity: 0.75,
-                      padding: 12,
-                      width: "200px",
-                    }}
-                  >
-                    <div style={{ fontSize: 16, fontColor: `#08233B` }}>
-                      Circle is about active cases
-                    </div>
-                  </div>
-                </InfoBox>
-              ) : null}
-            </div>
-          );
-        })}
-      </GoogleMap>
-    </LoadScript>
+    <React.Fragment>
+      <MapContainer center={[54.9333, -116.5765]} zoom={4.5} scrollWheelZoom={false} style={{ marginTop: '10px', marginBottom: '10px', height: '42vh', width: '50wh' }}>
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Circle center={[54.9333, -116.5765]} pathOptions={{ fillColor: 'blue' }} radius={20000} />
+        <Marker position={[54.9333, -116.5765]}>
+          <Popup>
+            Alberta Covid-19
+    </Popup>
+        </Marker>
+      </MapContainer>
+    </React.Fragment>
   );
 };
-export default MapContainer;
+
+export default map;

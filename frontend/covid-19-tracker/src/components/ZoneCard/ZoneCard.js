@@ -1,6 +1,5 @@
 import React from "react";
-import { Typography, Container, Grid } from "@material-ui/core";
-import OtherInformation from "../OtherInformation/OtherInformation";
+import { Typography, Grid } from "@material-ui/core";
 import ImgMediaCard from '../ImgMediaCard/ImgMediaCard';
 import CountUp from 'react-countup';
 const ZoneCard = (props) => {
@@ -12,9 +11,6 @@ const ZoneCard = (props) => {
             <Typography variant="h4" align="center" color="textSecondary" paragraph style={{ marginTop: "2%" }} >
                 Alberta increased: {<CountUp start={0} end={props.albertaData.length - props.albertaOldData.length} duration={2.5} separator=',' />} on yesterday
             </Typography>
-            {/* <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                Alberta increased cases: {<CountUp start={0} end={props.data.length - props.oldData.length} duration={2.5} />} on {props.yesterday}
-            </Typography> */}
             <Grid container spacing={2} justify="center">
                 <ImgMediaCard
                     edmontonData={props.edmontonData}
@@ -27,7 +23,6 @@ const ZoneCard = (props) => {
                     calgaryDied={props.calgaryDied} />
             </Grid>
             <Grid container spacing={2} justify="center">
-                {/* <OtherInformation array={props.array} /> */}
             </Grid>
         </React.Fragment>
     );

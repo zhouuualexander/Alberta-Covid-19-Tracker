@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 import { Animation } from '@devexpress/dx-react-chart';
 import {
     Chart,
@@ -12,7 +11,7 @@ import {
     Tooltip
 } from '@devexpress/dx-react-chart-material-ui';
 import { scaleBand } from '@devexpress/dx-chart-core';
-import { ArgumentScale, Stack } from '@devexpress/dx-react-chart';
+import { ArgumentScale } from '@devexpress/dx-react-chart';
 import { EventTracker, HoverState } from '@devexpress/dx-react-chart';
 
 export default class Demo extends React.PureComponent {
@@ -33,7 +32,6 @@ export default class Demo extends React.PureComponent {
         ]
     };
     render() {
-        console.log('1', this.props.albertaData);
         const { data: chartData } = this.state;
         return (
             <Paper style={{ width: "300px" }}>
