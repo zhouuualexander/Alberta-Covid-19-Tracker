@@ -9,6 +9,9 @@ const ZoneCard = (props) => {
             <Typography variant="h4" align="center" color="textSecondary" paragraph style={{ marginTop: "2%" }} >
                 Alberta total: {<CountUp start={0} end={props.albertaData.length} duration={2.5} separator=',' />}
             </Typography>
+            <Typography variant="h4" align="center" color="textSecondary" paragraph style={{ marginTop: "2%" }} >
+                Alberta increased: {<CountUp start={0} end={props.albertaData.length - props.albertaOldData.length} duration={2.5} separator=',' />} on yesterday
+            </Typography>
             {/* <Typography variant="h5" align="center" color="textSecondary" paragraph>
                 Alberta increased cases: {<CountUp start={0} end={props.data.length - props.oldData.length} duration={2.5} />} on {props.yesterday}
             </Typography> */}

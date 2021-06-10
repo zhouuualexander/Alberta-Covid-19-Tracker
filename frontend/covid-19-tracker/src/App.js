@@ -18,187 +18,9 @@ import City from './components/Visualization/City';
 import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 
 class App extends Component {
-  /***********get data from API ******************************************************8 */
-  // var albertaData = [];
-  // var albertaOlddata = [];
-  // const [abOlddata, setabOlddata] = useState(albertaOlddata);
-  // const [abData, setabData] = useState(albertaData);
-  // https://data.edmonton.ca/resource/jmcu-tz8y.json?$limit=10000000000&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq
-  // https://data.edmonton.ca/resource/jmcu-tz8y.json?$limit=10000000000&$where=date_reported between '2020-03-06' and '${dayBeforeYesterday}'&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq`
 
-  // useEffect(() => {
-  //   fetch(
-  //     `https://data.edmonton.ca/resource/jmcu-tz8y.json?$limit=10000000000&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq`,
-  //     {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "applicaiton/json",
-  //       },
-  //     }
-  //   )
-  //     .then((resp) => resp.json())
-  //     .then((resp) => setabData(resp))
-  //     .catch((error) => console.log(error));
-  // }, []);
-  // /**************************************************************************** */
-  // useEffect(() => {
-  //   fetch(
-  //     `https://data.edmonton.ca/resource/jmcu-tz8y.json?$limit=10000000000&$where=date_reported between '2020-03-06' and '${dayBeforeYesterday}'&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq`,
-  //     {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "applicaiton/json",
-  //       },
-  //     }
-  //   )
-  //     .then((resp) => resp.json())
-  //     .then((resp) => setabOlddata(resp))
-  //     .catch((error) => console.log(error));
-  // }, [dayBeforeYesterday]);
-
-  // let uniqueArray = removeDuplicates(abData, "alberta_health_services_zone");
-
-
-  /*---------------------------------Array has been finalized-----------------------*/
-  // let array = finalizeArray(abData, uniqueArray);
-  // if (array.length === 0) return null;
-
-  //city location
-  // const locationOptions = {
-  //   edmonton_options: {
-  //     strokeColor: "#FF00FF",
-  //     strokeOpacity: 0.8,
-  //     strokeWeight: 2,
-  //     fillColor: "#FF00FF",
-  //     fillOpacity: 0.35,
-  //     clickable: false,
-  //     draggable: false,
-  //     editable: false,
-  //     visible: true,
-  //     radius: array[1]["total active"] * 100,
-  //     zIndex: 1,
-  //   },
-  //   total_edmonton_options: {
-  //     strokeColor: "#00FF00",
-  //     strokeOpacity: 0.8,
-  //     strokeWeight: 2,
-  //     fillColor: "#00FF00",
-  //     fillOpacity: 0.35,
-  //     clickable: false,
-  //     draggable: false,
-  //     editable: false,
-  //     visible: true,
-  //     radius: array[1]["total case"] * 1000,
-  //     zIndex: 1,
-  //   }, calgary_options: {
-  //     strokeColor: "#FFFF00",
-  //     strokeOpacity: 0.8,
-  //     strokeWeight: 2,
-  //     fillColor: "#FFFF00",
-  //     fillOpacity: 0.35,
-  //     clickable: false,
-  //     draggable: false,
-  //     editable: false,
-  //     visible: true,
-  //     radius: array[0]["total active"] * 100,
-  //     zIndex: 1,
-  //   }, total_calgary_options: {
-  //     strokeColor: "#00FF00",
-  //     strokeOpacity: 0.8,
-  //     strokeWeight: 2,
-  //     fillColor: "#00FF00",
-  //     fillOpacity: 0.35,
-  //     clickable: false,
-  //     draggable: false,
-  //     editable: false,
-  //     visible: true,
-  //     radius: array[0]["total case"] * 10,
-  //     zIndex: 1,
-  //   }, north_options: {
-  //     strokeColor: "#FF0000",
-  //     strokeOpacity: 0.8,
-  //     strokeWeight: 2,
-  //     fillColor: "#FF0000",
-  //     fillOpacity: 0.35,
-  //     clickable: false,
-  //     draggable: false,
-  //     editable: false,
-  //     visible: true,
-  //     radius: array[3]["total active"] * 100,
-  //     zIndex: 1,
-  //   }, total_north_options: {
-  //     strokeColor: "#00FF00",
-  //     strokeOpacity: 0.8,
-  //     strokeWeight: 2,
-  //     fillColor: "#00FF00",
-  //     fillOpacity: 0.35,
-  //     clickable: false,
-  //     draggable: false,
-  //     editable: false,
-  //     visible: true,
-  //     radius: array[3]["total case"] * 10,
-  //     zIndex: 1,
-  //   }, south_options: {
-  //     strokeColor: "#FF0000",
-  //     strokeOpacity: 0.8,
-  //     strokeWeight: 2,
-  //     fillColor: "#FF0000",
-  //     fillOpacity: 0.35,
-  //     clickable: false,
-  //     draggable: false,
-  //     editable: false,
-  //     visible: true,
-  //     radius: array[4]["total active"] * 100,
-  //     zIndex: 1,
-  //   }, total_south_options: {
-  //     strokeColor: "#00FF00",
-  //     strokeOpacity: 0.8,
-  //     strokeWeight: 2,
-  //     fillColor: "#00FF00",
-  //     fillOpacity: 0.35,
-  //     clickable: false,
-  //     draggable: false,
-  //     editable: false,
-  //     visible: true,
-  //     radius: array[4]["total case"] * 10,
-  //     zIndex: 1,
-  //   }, central_options: {
-  //     strokeColor: "#FF0000",
-  //     strokeOpacity: 0.8,
-  //     strokeWeight: 2,
-  //     fillColor: "#FF0000",
-  //     fillOpacity: 0.35,
-  //     clickable: false,
-  //     draggable: false,
-  //     editable: false,
-  //     visible: true,
-  //     radius: array[2]["total active"] * 100,
-  //     zIndex: 1,
-  //   }, total_central_options: {
-  //     strokeColor: "#00FF00",
-  //     strokeOpacity: 0.8,
-  //     strokeWeight: 2,
-  //     fillColor: "#00FF00",
-  //     fillOpacity: 0.35,
-  //     clickable: false,
-  //     draggable: false,
-  //     editable: false,
-  //     visible: true,
-  //     radius: array[2]["total case"] * 10,
-  //     zIndex: 1,
-  //   }
-  // };
-
-
-
-  // const cities = [
-  //   [locationGps.edmonton, locationOptions.edmonton_options, locationOptions.total_edmonton_options],
-  //   [locationGps.calgary, locationOptions.calgary_options, locationOptions.total_calgary_options],
-  //   [locationGps.north, locationOptions.north_options, locationOptions.total_north_options],
-  //   [locationGps.south, locationOptions.south_options, locationOptions.total_south_options],
-  //   [locationGps.central, locationOptions.central_options, locationOptions.total_central_options],
-  // ];
   state = {
+    albertaOldData: null,
     albertaData: null, albertaRecovered: [], albertaActive: [], albertaDied: [],
     edmontonData: [], edmontonRecovered: [], edmontonActive: [], edmontonDied: [],
     calgaryData: [], calgaryRecovered: [], calgaryActive: [], calgaryDied: [],
@@ -207,6 +29,12 @@ class App extends Component {
     centralData: [], centralRecovered: [], centralActive: [], centralDied: [],
   };
   componentDidMount() {
+    const dayBeforeYesterday = getYesterdaysDate(3);
+    axios.get(`https://data.edmonton.ca/resource/jmcu-tz8y.json?$limit=10000000000&$where=date_reported between '2020-03-06' and '${dayBeforeYesterday}'&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq`).then((response) => {
+      const albertaOldData = response.data;
+      this.setState({ albertaOldData: albertaOldData });
+      console.log(albertaOldData);
+    });
     axios.get('https://data.edmonton.ca/resource/jmcu-tz8y.json?$limit=10000000000&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq')
       .then((response) => {
         const albertaData = response.data;
@@ -305,13 +133,14 @@ class App extends Component {
         <TitleBar />
         <main>
           <ThemeProvider theme={theme}>
-            {this.state.albertaData === null ?
+            {this.state.albertaData === null || this.state.albertaOldData === null ?
               <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
                 <Loading type="spin" color="black" />
               </div> :
               <Container maxWidth='lg' style={{ marginBottom: '10px' }}>
                 <div style={{ marginBottom: '20px' }}>
                   <ZoneCard albertaData={this.state.albertaData}
+                    albertaOldData={this.state.albertaOldData}
                     edmontonData={this.state.edmontonData}
                     edmontonActive={this.state.edmontonActive}
                     edmontonRecovered={this.state.edmontonRecovered}
