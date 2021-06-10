@@ -4,6 +4,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@devexpress/dx-react-chart": "^2.7.5",
+    "@devexpress/dx-react-chart-material-ui": "^2.7.5",
+    "@devexpress/dx-react-core": "^2.7.5",
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
@@ -25,6 +28,7 @@
     "react-dom": "^16.13.1",
     "react-google-maps": "^9.4.5",
     "react-live-clock": "^4.0.5",
+    "react-loading": "^2.0.3",
     "react-moment": "^0.9.7",
     "react-scripts": "3.4.1",
     "themed-digital-clock": "^1.1.4"

@@ -5,20 +5,28 @@ import ImgMediaCard from '../ImgMediaCard/ImgMediaCard';
 import CountUp from 'react-countup';
 const ZoneCard = (props) => {
     return (
-        <Container maxWidth='md'>
+        <React.Fragment>
             <Typography variant="h4" align="center" color="textSecondary" paragraph style={{ marginTop: "2%" }} >
-                Alberta total: {<CountUp start={0} end={props.data.length} duration={2.5} separator=',' />}
+                Alberta total: {<CountUp start={0} end={props.albertaData.length} duration={2.5} separator=',' />}
             </Typography>
-            <Typography variant="h5" align="center" color="textSecondary" paragraph>
+            {/* <Typography variant="h5" align="center" color="textSecondary" paragraph>
                 Alberta increased cases: {<CountUp start={0} end={props.data.length - props.oldData.length} duration={2.5} />} on {props.yesterday}
-            </Typography>
+            </Typography> */}
             <Grid container spacing={2} justify="center">
-                <ImgMediaCard array={props.array} />
+                <ImgMediaCard
+                    edmontonData={props.edmontonData}
+                    edmontonActive={props.edmontonActive}
+                    edmontonRecovered={props.edmontonRecovered}
+                    edmontonDied={props.edmontonDied}
+                    calgaryData={props.calgaryData}
+                    calgaryActive={props.calgaryActive}
+                    calgaryRecovered={props.calgaryRecovered}
+                    calgaryDied={props.calgaryDied} />
             </Grid>
             <Grid container spacing={2} justify="center">
-                <OtherInformation array={props.array} />
+                {/* <OtherInformation array={props.array} /> */}
             </Grid>
-        </Container>
+        </React.Fragment>
     );
 };
 export default ZoneCard;

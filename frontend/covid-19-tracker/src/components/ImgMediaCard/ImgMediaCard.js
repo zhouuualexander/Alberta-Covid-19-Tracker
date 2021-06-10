@@ -20,52 +20,66 @@ const useStyles = makeStyles({
 });
 const ImgMediaCard = (props) => {
   const classes = useStyles();
+  const cities = [
+    {
+      name: 'Edmonton',
+      totalCases: props.edmontonData.length,
+      activeCases: props.edmontonActive.length,
+      diedCases: props.edmontonDied.length,
+      recoveredCases: props.edmontonRecovered.length
+    },
+    {
+      name: 'Calgary',
+      totalCases: props.calgaryData.length,
+      activeCases: props.calgaryActive.length,
+      diedCases: props.calgaryDied.length,
+      recoveredCases: props.calgaryRecovered.length
+    }
+  ];
   return (
     <React.Fragment>
-      {props.array.map((zone) => {
-        if (zone["alberta_health_services_zone"] === "Edmonton Zone" || zone["alberta_health_services_zone"] === "Calgary Zone") {
-          return (
-            <Card className={classes.root} key={zone["alberta_health_services_zone"]}  >
-              <CardActionArea disabled >
-                <CardMedia
-                  component="img"
-                  alt={zone["alberta_health_services_zone"] === "Edmonton Zone" ? "Edmonton Zone" :
-                    "Calgary Zone"}
-                  height="300px"
-                  src={zone["alberta_health_services_zone"] === "Edmonton Zone" ?
-                    require('/Users/alexzhou/Desktop/alberta-covid-19-tracker/frontend/covid-19-tracker/src/Assets/edmonton-banner.jpg') :
-                    require('/Users/alexzhou/Desktop/alberta-covid-19-tracker/frontend/covid-19-tracker/src/Assets/calgary_final_revised.jpg')}
-                  title={zone["alberta_health_services_zone"] === "Edmonton Zone" ? "Edmonton Zone" :
-                    "Calgary Zone"}
-                />
-                <CardContent >
-                  <Typography gutterBottom variant="h5" component="h2" >
-                    {zone["alberta_health_services_zone"]}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p" >
-                    Total cases {<CountUp start={0} end={zone["total case"]} duration={2.5} />}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p" >
-                    Active cases {<CountUp start={0} end={zone["total active"]} duration={2.5} />}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p" >
-                    Death cases {<CountUp start={0} end={zone["total death"]} duration={2.5} />}
-                  </Typography>
-                </CardContent>
-
-              </CardActionArea>
-              <CardActions>
-                <Button size="small" color="primary" target="_blank" href="https://www.edmonton.ca/programs_services/emergency_preparedness/covid-19.aspx">
-                  More info @ {zone["alberta_health_services_zone"]}
-                </Button>
-              </CardActions>
-            </Card>
-          );
-        }
-        else {
-          return ('');
-        }
+      {cities.map((city) => {
+        return <Card className={classes.root} key={city}>
+          <CardActionArea disabled key={city}>
+            <CardMedia key={city}
+              component="img"
+              alt={city.name === "Edmonton" ? "Edmonton Zone" :
+                "Calgary Zone"}
+              height="300px"
+              src={city.name === "Edmonton" ?
+                require('/Users/alexzhou/Desktop/alberta-covid-19-tracker/frontend/covid-19-tracker/src/Assets/edmonton-banner.jpg') :
+                require('/Users/alexzhou/Desktop/alberta-covid-19-tracker/frontend/covid-19-tracker/src/Assets/calgary_final_revised.jpg')}
+              title={city.name === "Edmonton" ? "Edmonton Zone" :
+                "Calgary Zone"}
+            />
+            <CardContent key={city} >
+              <Typography gutterBottom variant="h5" component="h2" >
+                {city.name}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p" >
+                Total cases {<CountUp start={0} end={city.totalCases} duration={2.5} />}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p" >
+                Recovered cases {<CountUp start={0} end={city.recoveredCases} duration={2.5} />}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p" >
+                Active cases {<CountUp start={0} end={city.activeCases} duration={2.5} />}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p" >
+                Death cases {<CountUp start={0} end={city.diedCases} duration={2.5} />}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          <CardActions>
+            <Button size="small" color="primary" target="_blank" href={city.name === "Edmonton" ?
+              "https ://www.edmonton.ca/programs_services/emergency_preparedness/covid-19.aspx" :
+              "https://www.calgary.ca/csps/cema/covid19/response-to-coronavirus.html"}>
+              More info
+          </Button>
+          </CardActions>
+        </Card>;
       })}
+
     </React.Fragment>
 
   );
