@@ -59,7 +59,7 @@ export default class Demo extends React.PureComponent {
                     <BarSeries
                         valueField="recovered"
                         argumentField="state"
-                        name="Active"
+                        name="Recovered"
                     />
 
                     <Stack />
