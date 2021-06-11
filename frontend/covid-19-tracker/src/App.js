@@ -14,6 +14,9 @@ import Gender from './components/Visualization/Gender';
 import City from './components/Visualization/City';
 import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 import Map from '../src/components/MapContainer/MapContainer';
+import AlbertaNewCases from '../src/components/Visualization/AlbertaNewCases';
+import AlbertaCases from './components/Visualization/AlbertaCases';
+import CitiesNewCases from './components/Visualization/CitiesNewCases';
 class App extends Component {
 
   state = {
@@ -24,6 +27,7 @@ class App extends Component {
     northData: [], northRecovered: [], northActive: [], northDied: [],
     southData: [], southRecovered: [], southActive: [], southDied: [],
     centralData: [], centralRecovered: [], centralActive: [], centralDied: [],
+    albertaDailyData: [], edmontonDailyData: [], calgaryDailyData: []
   };
   componentDidMount() {
     const dayBeforeYesterday = getYesterdaysDate(3);
@@ -32,6 +36,24 @@ class App extends Component {
       this.setState({ albertaOldData: albertaOldData });
 
     });
+    /**
+    Getting the Alberta Day by Day Covid-19 Data
+    */
+    axios.get('https://data.edmonton.ca/resource/gxqm-z6fa.json?$limit=10000000000&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq')
+      .then((response) => {
+        const albertaDailyData = response.data.filter((data) => {
+          return data.location === "Alberta";
+        });
+        const edmontonDailyData = response.data.filter((data) => {
+          return data.location === "Edmonton Zone";
+        });
+        const calgaryDailyData = response.data.filter((data) => {
+          return data.location === "Calgary Zone";
+        });
+
+        this.setState({ edmontonDailyData: edmontonDailyData, albertaDailyData: albertaDailyData, calgaryDailyData: calgaryDailyData });
+
+      });
     axios.get('https://data.edmonton.ca/resource/jmcu-tz8y.json?$limit=10000000000&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq')
       .then((response) => {
         const albertaData = response.data;
@@ -125,7 +147,7 @@ class App extends Component {
         <TitleBar />
         <main>
           <ThemeProvider theme={theme}>
-            {this.state.albertaData === null || this.state.albertaOldData === null ?
+            {this.state.albertaData === null || this.state.albertaOldData === null || this.state.albertaDailyData === null ?
               <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
                 <Loading type="spin" color="black" />
               </div> :
@@ -153,6 +175,15 @@ class App extends Component {
                   </Grid>
                   <Grid item >
                     <City edmontonData={this.state.edmontonData} calgaryData={this.state.calgaryData} />
+                  </Grid>
+                  <Grid item >
+                    <AlbertaNewCases albertaDailyData={this.state.albertaDailyData} />
+                  </Grid>
+                  <Grid item >
+                    <AlbertaCases albertaDailyData={this.state.albertaDailyData} />
+                  </Grid>
+                  <Grid item >
+                    <CitiesNewCases calgaryDailyData={this.state.calgaryDailyData} edmontonDailyData={this.state.edmontonDailyData} />
                   </Grid>
                 </Grid>
                 <Map />
