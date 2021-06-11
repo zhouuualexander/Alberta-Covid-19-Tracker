@@ -28,7 +28,6 @@ export default class AlbertaNewCases extends React.PureComponent {
     };
 
     render() {
-        console.log(this.state.data);
         const { data: chartData } = this.state;
         return (
             <Paper style={{ width: "800px" }}>
