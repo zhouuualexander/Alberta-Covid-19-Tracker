@@ -56,9 +56,9 @@ export default class CitiesNewCases extends React.PureComponent {
     render() {
         const { data: chartData } = this.state;
         return (
-            <Paper style={{ width: "800px" }}>
+            <Paper style={{ width: "300px" }}>
                 <Chart height={300}
-                    width={800}
+                    width={300}
                     data={chartData}
                 >
                     <Title text="Edmonton vs Calgary new cases curve" />
