@@ -34,16 +34,19 @@ export default class Demo extends React.PureComponent {
                         valueField="active"
                         argumentField="state"
                         name="Active"
+                        color="red"
                     />
                     <BarSeries
                         valueField="recovered"
                         argumentField="state"
                         name="Recovered"
+                        color="green"
                     />
                     <BarSeries
                         valueField="died"
                         argumentField="state"
                         name="Died"
+                        color="black"
                     />
                     <EventTracker />
                     <HoverState />

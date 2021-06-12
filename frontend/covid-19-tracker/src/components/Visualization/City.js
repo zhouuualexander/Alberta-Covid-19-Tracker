@@ -54,11 +54,13 @@ export default class Demo extends React.PureComponent {
                         valueField="total"
                         argumentField="state"
                         name="Total"
+                        color="grey"
                     />
                     <BarSeries
                         valueField="recovered"
                         argumentField="state"
                         name="Recovered"
+                        color="green"
                     />
 
                     <Stack />

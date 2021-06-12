@@ -186,7 +186,8 @@ class App extends Component {
                     <CitiesNewCases calgaryDailyData={this.state.calgaryDailyData} edmontonDailyData={this.state.edmontonDailyData} />
                   </Grid>
                 </Grid>
-                <Map />
+                <Map edmontonActiveNumber={this.state.edmontonActive.length}
+                  calgaryActiveNumber={this.state.calgaryActive.length} />
               </Container>
             }
           </ThemeProvider>

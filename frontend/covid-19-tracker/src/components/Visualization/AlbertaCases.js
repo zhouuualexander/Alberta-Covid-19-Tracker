@@ -30,9 +30,9 @@ export default class AlbertaNewCases extends React.PureComponent {
     render() {
         const { data: chartData } = this.state;
         return (
-            <Paper style={{ width: "300px" }}>
+            <Paper style={{ width: "70vw" }}>
                 <Chart height={300}
-                    width={300}
+                    width="70vw"
                     data={chartData}
                 >
                     <Title text="Alberta accumulate cases curve (log)" />
