@@ -28,14 +28,16 @@ const ImgMediaCard = (props) => {
       totalCases: props.edmontonData.length,
       activeCases: props.edmontonActive.length,
       diedCases: props.edmontonDied.length,
-      recoveredCases: props.edmontonRecovered.length
+      recoveredCases: props.edmontonRecovered.length,
+      firstDoseRate: props.edmontonDailyVaccination[0]["percent_pop_1_plus_dose"]
     },
     {
       name: 'Calgary',
       totalCases: props.calgaryData.length,
       activeCases: props.calgaryActive.length,
       diedCases: props.calgaryDied.length,
-      recoveredCases: props.calgaryRecovered.length
+      recoveredCases: props.calgaryRecovered.length,
+      firstDoseRate: props.calgaryDailyVaccination[0]["percent_pop_1_plus_dose"]
     }
   ];
   return (
@@ -59,16 +61,19 @@ const ImgMediaCard = (props) => {
                 {city.name}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p" >
-                Total cases {<CountUp start={0} end={city.totalCases} duration={2.5} />}
+                Total cases: {<CountUp start={0} end={city.totalCases} duration={2.5} />}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p" >
-                Recovered cases {<CountUp start={0} end={city.recoveredCases} duration={2.5} />}
+                Recovered cases: {<CountUp start={0} end={city.recoveredCases} duration={2.5} />}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p" >
-                Active cases {<CountUp start={0} end={city.activeCases} duration={2.5} />}
+                Active cases: {<CountUp start={0} end={city.activeCases} duration={2.5} />}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p" >
-                Death cases {<CountUp start={0} end={city.diedCases} duration={2.5} />}
+                Death cases: {<CountUp start={0} end={city.diedCases} duration={2.5} />}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p" >
+                First Dose of Vaccination rate: {<CountUp start={0} end={city.firstDoseRate} duration={2.5} />}%
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -77,7 +82,7 @@ const ImgMediaCard = (props) => {
               "https://www.edmonton.ca/programs_services/emergency_preparedness/covid-19.aspx" :
               "https://www.calgary.ca/csps/cema/covid19/response-to-coronavirus.html"}>
               More info
-          </Button>
+            </Button>
           </CardActions>
         </Card>;
       })}

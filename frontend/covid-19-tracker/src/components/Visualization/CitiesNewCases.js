@@ -61,7 +61,7 @@ export default class CitiesNewCases extends React.PureComponent {
                     width='70vw'
                     data={chartData}
                 >
-                    <Title text="Edmonton vs Calgary new cases curve" />
+                    <Title text="Edmonton vs Calgary daily new cases curve" />
                     <ValueAxis />
                     <SplineSeries
                         name="Edmonton"

@@ -49,7 +49,7 @@ export default class Demo extends React.PureComponent {
                         valueField="male"
                         argumentField="state"
                         name="Male"
-                        color="DarkBlue"
+                        color="#a4c6ed"
                     />
                     <BarSeries
                         valueField="female"

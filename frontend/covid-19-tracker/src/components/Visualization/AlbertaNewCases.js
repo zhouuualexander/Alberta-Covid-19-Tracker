@@ -41,7 +41,7 @@ export default class AlbertaNewCases extends React.PureComponent {
                     width="70vw"
                     data={chartData}
                 >
-                    <Title text="Alberta new cases curve" />
+                    <Title text="Alberta daily new cases curve" />
 
                     <ValueAxis />
                     <SplineSeries

@@ -13,6 +13,8 @@ const ZoneCard = (props) => {
             </Typography>
             <Grid container spacing={2} justify="center">
                 <ImgMediaCard
+                    edmontonDailyVaccination={props.edmontonDailyVaccination}
+                    calgaryDailyVaccination={props.calgaryDailyVaccination}
                     edmontonData={props.edmontonData}
                     edmontonActive={props.edmontonActive}
                     edmontonRecovered={props.edmontonRecovered}

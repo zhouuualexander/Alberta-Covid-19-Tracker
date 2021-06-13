@@ -40,7 +40,7 @@ export default class Demo extends React.PureComponent {
                         valueField="recovered"
                         argumentField="state"
                         name="Recovered"
-                        color="green"
+                        color="#bcf2b3"
                     />
                     <BarSeries
                         valueField="died"

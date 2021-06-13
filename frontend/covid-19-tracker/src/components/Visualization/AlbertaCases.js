@@ -35,7 +35,7 @@ export default class AlbertaNewCases extends React.PureComponent {
                     width="70vw"
                     data={chartData}
                 >
-                    <Title text="Alberta accumulate cases curve (log)" />
+                    <Title text="Alberta accumulate cases curve (Logarithm)" />
 
                     <ValueAxis />
                     <SplineSeries
