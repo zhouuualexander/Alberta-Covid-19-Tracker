@@ -42,7 +42,7 @@ export default class EdmontonVariant extends React.PureComponent {
         const { data: chartData } = this.state;
         return (
             <React.Fragment >
-                <Paper style={{ width: "70vw" }} style={{ marginBottom: "3vh" }}>
+                <Paper style={{ width: "70vw", marginBottom: '3vh' }} >
                     <Chart height={300}
                         width="70vw"
                         data={chartData}

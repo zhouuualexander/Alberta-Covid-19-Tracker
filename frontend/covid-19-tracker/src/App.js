@@ -14,14 +14,11 @@ import Gender from './components/Visualization/Gender';
 import City from './components/Visualization/City';
 import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 import Map from '../src/components/MapContainer/MapContainer';
-import AlbertaNewCases from '../src/components/Visualization/AlbertaNewCases';
-import AlbertaCases from './components/Visualization/AlbertaCases';
-import CitiesNewCases from './components/Visualization/CitiesNewCases';
-import CitiesVaccination from './components/Visualization/CitiesVaccination';
 import AlbertaVariant from "./components/Visualization/AlbertaVariant";
 import EdmontonVariant from "./components/Visualization/EdmontonVariant";
 import CalgaryVariant from "./components/Visualization/CalgaryVariant";
 import CitiesVariant from "./components/Visualization/CitiesVariant";
+import VisualizationTab from './components/VisualizationTab/VisualizationTab';
 class App extends Component {
 
   state = {
@@ -220,6 +217,7 @@ class App extends Component {
                     edmontonDailyVaccination={this.state.edmontonDailyVaccination}
                     calgaryDailyVaccination={this.state.calgaryDailyVaccination} />
                 </div>
+
                 <Grid container justify="center" spacing={4}>
                   <Grid item >
                     <Alberta albertaActive={this.state.albertaActive}
@@ -231,31 +229,15 @@ class App extends Component {
                   </Grid>
                   <Grid item >
                     <City edmontonData={this.state.edmontonData} calgaryData={this.state.calgaryData} />
+                  </Grid><Grid item >
+                    <VisualizationTab albertaDailyData={this.state.albertaDailyData}
+                      calgaryDailyData={this.state.calgaryDailyData} edmontonDailyData={this.state.edmontonDailyData}
+                      calgaryDailyVaccination={this.state.calgaryDailyVaccination} edmontonDailyVaccination={this.state.edmontonDailyVaccination}
+                      albertaDailyVariant={this.state.albertaDailyVariant}
+                      edmontonVariant={this.state.edmontonVariant}
+                      calgaryVariant={this.state.calgaryVariant} />
                   </Grid>
-                  <Grid item >
-                    <AlbertaNewCases albertaDailyData={this.state.albertaDailyData} />
-                  </Grid>
-                  <Grid item >
-                    <AlbertaCases albertaDailyData={this.state.albertaDailyData} />
-                  </Grid>
-                  <Grid item >
-                    <CitiesNewCases calgaryDailyData={this.state.calgaryDailyData} edmontonDailyData={this.state.edmontonDailyData} />
-                  </Grid>
-                  <Grid item >
-                    <CitiesVaccination calgaryDailyVaccination={this.state.calgaryDailyVaccination} edmontonDailyVaccination={this.state.edmontonDailyVaccination} />
-                  </Grid>
-                  <Grid item>
-                    <AlbertaVariant albertaDailyVariant={this.state.albertaDailyVariant} />
-                  </Grid>
-                  <Grid item>
-                    <EdmontonVariant edmontonVariant={this.state.edmontonVariant} />
-                  </Grid>
-                  <Grid item>
-                    <CalgaryVariant calgaryVariant={this.state.calgaryVariant} />
-                  </Grid>
-                  <Grid item>
-                    <CitiesVariant calgaryVariant={this.state.calgaryVariant} edmontonVariant={this.state.edmontonVariant} />
-                  </Grid>
+
                   <Grid item >
                     <Map edmontonActiveNumber={this.state.edmontonActive.length}
                       calgaryActiveNumber={this.state.calgaryActive.length} />

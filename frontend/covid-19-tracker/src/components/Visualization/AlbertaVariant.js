@@ -43,7 +43,7 @@ export default class AlbertaVariant extends React.PureComponent {
         const { data: chartData } = this.state;
         return (
             <React.Fragment >
-                <Paper style={{ width: "70vw" }} >
+                <Paper style={{ width: "70vw", marginBottom: '3vh' }} >
                     <Chart height={300}
                         width="70vw"
                         data={chartData}

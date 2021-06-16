@@ -34,6 +34,7 @@
     "react-loading": "^2.0.3",
     "react-moment": "^0.9.7",
     "react-scripts": "^4.0.0",
+    "react-swipeable-views": "^0.14.0",
     "themed-digital-clock": "^1.1.4"
   },
   "scripts": {
