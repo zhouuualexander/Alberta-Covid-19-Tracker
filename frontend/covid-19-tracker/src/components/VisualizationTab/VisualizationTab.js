@@ -30,8 +30,6 @@ function TabPanel(props) {
         >
             {value === index && (
                 <div>  {children}</div>
-
-
             )}
         </div>
     );
@@ -54,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         backgroundColor: theme.palette.background.paper,
         width: '80vw',
+
     },
 }));
 
@@ -94,7 +93,7 @@ export default function FullWidthTabs(props) {
                 onChangeIndex={handleChangeIndex}
             >
                 <TabPanel value={value} index={0} dir={theme.direction} >
-                    <Grid container spacing={2} justify="center">
+                    <Grid container spacing={2} justify="center" style={{ height: '80vh' }}>
                         <Grid item>
                             <AlbertaNewCases albertaDailyData={props.albertaDailyData} />
                         </Grid>
@@ -107,7 +106,7 @@ export default function FullWidthTabs(props) {
                     </Grid>
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
-                    <Grid container spacing={2} justify="center">
+                    <Grid container spacing={2} justify="center" style={{ height: '80vh' }}>
                         <Grid item>
                             <CitiesNewCases calgaryDailyData={props.calgaryDailyData} edmontonDailyData={props.edmontonDailyData} />
                         </Grid>
@@ -120,14 +119,14 @@ export default function FullWidthTabs(props) {
                     </Grid>
                 </TabPanel>
                 <TabPanel value={value} index={2} dir={theme.direction}>
-                    <Grid container spacing={2} justify="center">
+                    <Grid container spacing={2} justify="center" >
                         <Grid item>
                             <EdmontonVariant edmontonVariant={props.edmontonVariant} />
                         </Grid>
                     </Grid>
                 </TabPanel>
                 <TabPanel value={value} index={3} dir={theme.direction}>
-                    <Grid container spacing={2} justify="center">
+                    <Grid container spacing={2} justify="center" >
                         <Grid item>
                             <CalgaryVariant calgaryVariant={props.calgaryVariant} />
                         </Grid>
