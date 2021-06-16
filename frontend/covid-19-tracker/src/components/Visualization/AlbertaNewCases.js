@@ -2,10 +2,10 @@ import * as React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import {
-    ArgumentAxis,
+
     ValueAxis,
     Chart,
-    LineSeries,
+
     Title,
     SplineSeries,
 } from '@devexpress/dx-react-chart-material-ui';

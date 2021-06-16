@@ -18,6 +18,10 @@ import AlbertaNewCases from '../src/components/Visualization/AlbertaNewCases';
 import AlbertaCases from './components/Visualization/AlbertaCases';
 import CitiesNewCases from './components/Visualization/CitiesNewCases';
 import CitiesVaccination from './components/Visualization/CitiesVaccination';
+import AlbertaVariant from "./components/Visualization/AlbertaVariant";
+import EdmontonVariant from "./components/Visualization/EdmontonVariant";
+import CalgaryVariant from "./components/Visualization/CalgaryVariant";
+import CitiesVariant from "./components/Visualization/CitiesVariant";
 class App extends Component {
 
   state = {
@@ -28,7 +32,8 @@ class App extends Component {
     northData: [], northRecovered: [], northActive: [], northDied: [],
     southData: [], southRecovered: [], southActive: [], southDied: [],
     centralData: [], centralRecovered: [], centralActive: [], centralDied: [],
-    albertaDailyData: [], edmontonDailyData: [], calgaryDailyData: [], calgaryDailyVaccination: [], edmontonDailyVaccination: []
+    albertaDailyData: [], edmontonDailyData: [], calgaryDailyData: [], calgaryDailyVaccination: [], edmontonDailyVaccination: [],
+    albertaDailyVariant: [], edmontonVariant: [], calgaryVariant: []
   };
   componentDidMount() {
     const dayBeforeYesterday = getYesterdaysDate(3);
@@ -69,26 +74,39 @@ class App extends Component {
         const calgaryDailyVaccination = response.data.filter((data) => {
           return data.location === 'Calgary Zone';
         });
-        console.log(edmontonDailyVaccination);
-        console.log(calgaryDailyVaccination);
         this.setState({ edmontonDailyVaccination: edmontonDailyVaccination, calgaryDailyVaccination: calgaryDailyVaccination });
-
-        // const albertaDailyData = response.data.filter((data) => {
-        //   return data.location === "Alberta";
-        // });
-        // const edmontonDailyData = response.data.filter((data) => {
-        //   return data.location === "Edmonton Zone";
-        // });
-        // const calgaryDailyData = response.data.filter((data) => {
-        //   return data.location === "Calgary Zone";
-        // });
-
-        // this.setState({ edmontonDailyData: edmontonDailyData, albertaDailyData: albertaDailyData, calgaryDailyData: calgaryDailyData });
-
       });
     /**
-   Getting the Alberta Vaccination Data above
+    Getting the Alberta Vaccination Data above
    */
+    /**
+  Getting the Alberta Day by Day Covid-19 Data above
+ */
+    /**
+    Getting the Alberta Covid-19 Variant Data below
+    */
+    axios.get('https://data.edmonton.ca/resource/f7kx-redx.json?$limit=10000000000&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq')
+      .then((response) => {
+
+        const albertaDailyVariant = response.data.filter((data) => {
+
+          return (data.zone === 'In Alberta');
+
+        });
+        const edmontonVariant = response.data.filter((data) => {
+          return (data.zone === 'Edmonton Zone');
+        });
+        const calgaryVariant = response.data.filter((data) => {
+          return (data.zone === 'Calgary Zone');
+        });
+
+        this.setState({ albertaDailyVariant: albertaDailyVariant, edmontonVariant: edmontonVariant, calgaryVariant: calgaryVariant });
+      });
+    /**
+    Getting the Alberta Covid-19 Variant Data  above
+   */
+
+
 
     axios.get('https://data.edmonton.ca/resource/jmcu-tz8y.json?$limit=10000000000&$$app_token=CoCmeiMMf8g0Uexp09f2YjYWq')
       .then((response) => {
@@ -177,12 +195,13 @@ class App extends Component {
     theme = responsiveFontSizes(theme);
     return (
       // #2B588E
-      <React.Fragment>
+      <React.Fragment >
         <CssBaseline />
         <TitleBar />
         <main>
           <ThemeProvider theme={theme}>
-            {this.state.albertaData === null || this.state.albertaOldData === null || this.state.albertaDailyData === null || this.state.edmontonDailyVaccination === null ?
+            {this.state.albertaData === null || this.state.albertaOldData === null || this.state.albertaDailyData === null || this.state.edmontonDailyVaccination === null
+              || this.state.albertaDailyVariant === null ?
               <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
                 <Loading type="spin" color="black" />
               </div> :
@@ -224,6 +243,18 @@ class App extends Component {
                   </Grid>
                   <Grid item >
                     <CitiesVaccination calgaryDailyVaccination={this.state.calgaryDailyVaccination} edmontonDailyVaccination={this.state.edmontonDailyVaccination} />
+                  </Grid>
+                  <Grid item>
+                    <AlbertaVariant albertaDailyVariant={this.state.albertaDailyVariant} />
+                  </Grid>
+                  <Grid item>
+                    <EdmontonVariant edmontonVariant={this.state.edmontonVariant} />
+                  </Grid>
+                  <Grid item>
+                    <CalgaryVariant calgaryVariant={this.state.calgaryVariant} />
+                  </Grid>
+                  <Grid item>
+                    <CitiesVariant calgaryVariant={this.state.calgaryVariant} edmontonVariant={this.state.edmontonVariant} />
                   </Grid>
                   <Grid item >
                     <Map edmontonActiveNumber={this.state.edmontonActive.length}
