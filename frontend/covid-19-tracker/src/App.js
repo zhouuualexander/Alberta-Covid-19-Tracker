@@ -14,7 +14,8 @@ import Gender from './components/Visualization/Gender';
 import City from './components/Visualization/City';
 import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 import Map from '../src/components/MapContainer/MapContainer';
-
+import { HashRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import VisualizationTab from './components/VisualizationTab/VisualizationTab';
 class App extends Component {
 
@@ -189,66 +190,89 @@ class App extends Component {
     theme = responsiveFontSizes(theme);
     return (
       // #2B588E
-      <React.Fragment >
-        <CssBaseline />
-        <TitleBar />
-        <main>
-          <ThemeProvider theme={theme}>
-            {this.state.albertaData === null || this.state.albertaOldData === null || this.state.albertaDailyData === null || this.state.edmontonDailyVaccination === null
-              || this.state.albertaDailyVariant === null ?
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
-                <Loading type="spin" color="black" />
-              </div> :
-              <Container maxWidth='lg' style={{ marginBottom: '10px' }}>
-                <div style={{ marginBottom: '20px' }}>
-                  <ZoneCard albertaData={this.state.albertaData}
-                    albertaOldData={this.state.albertaOldData}
-                    edmontonData={this.state.edmontonData}
-                    edmontonActive={this.state.edmontonActive}
-                    edmontonRecovered={this.state.edmontonRecovered}
-                    edmontonDied={this.state.edmontonDied}
-                    calgaryData={this.state.calgaryData}
-                    calgaryActive={this.state.calgaryActive}
-                    calgaryRecovered={this.state.calgaryRecovered}
-                    calgaryDied={this.state.calgaryDied}
-                    edmontonDailyVaccination={this.state.edmontonDailyVaccination}
-                    calgaryDailyVaccination={this.state.calgaryDailyVaccination} />
-                </div>
+      <HashRouter>
+        <React.Fragment >
+          <CssBaseline />
+          <TitleBar />
+          <main>
+            <ThemeProvider theme={theme}>
+              {this.state.albertaData === null || this.state.albertaOldData === null || this.state.albertaDailyData === null || this.state.edmontonDailyVaccination === null
+                || this.state.albertaDailyVariant === null ?
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
+                  <Loading type="spin" color="black" />
+                </div> :
+                <Container maxWidth='lg' style={{ marginBottom: '10px' }}>
+                  <Route path="/" exact render={() => {
+                    return (
+                      <React.Fragment>
+                        <div style={{ marginBottom: '20px' }}>
+                          <ZoneCard albertaData={this.state.albertaData}
+                            albertaOldData={this.state.albertaOldData}
+                            edmontonData={this.state.edmontonData}
+                            edmontonActive={this.state.edmontonActive}
+                            edmontonRecovered={this.state.edmontonRecovered}
+                            edmontonDied={this.state.edmontonDied}
+                            calgaryData={this.state.calgaryData}
+                            calgaryActive={this.state.calgaryActive}
+                            calgaryRecovered={this.state.calgaryRecovered}
+                            calgaryDied={this.state.calgaryDied}
+                            edmontonDailyVaccination={this.state.edmontonDailyVaccination}
+                            calgaryDailyVaccination={this.state.calgaryDailyVaccination} />
+                        </div>
+                        <Grid container justify="center" spacing={4}>
+                          <Grid item >
+                            <Alberta albertaActive={this.state.albertaActive}
+                              albertaRecovered={this.state.albertaRecovered}
+                              albertaDied={this.state.albertaDied} />
+                          </Grid>
+                          <Grid item >
+                            <Gender albertaData={this.state.albertaData} />
+                          </Grid>
+                          <Grid item >
+                            <City edmontonData={this.state.edmontonData} calgaryData={this.state.calgaryData} />
+                          </Grid><Grid item ></Grid>
+                        </Grid>
+                      </React.Fragment>
+                    );
+                  }} />
+                  <Route path="/alberta-covid-19-tracker/visualization" exact render={() => {
+                    return (
+                      <React.Fragment>
+                        <Grid container justify="center" spacing={4} style={{ marginTop: "1vh", marginBottom: "1vh" }}>
+                          <Grid item>
+                            <VisualizationTab albertaDailyData={this.state.albertaDailyData}
+                              calgaryDailyData={this.state.calgaryDailyData} edmontonDailyData={this.state.edmontonDailyData}
+                              calgaryDailyVaccination={this.state.calgaryDailyVaccination} edmontonDailyVaccination={this.state.edmontonDailyVaccination}
+                              albertaDailyVariant={this.state.albertaDailyVariant}
+                              edmontonVariant={this.state.edmontonVariant}
+                              calgaryVariant={this.state.calgaryVariant} />
+                          </Grid>
+                        </Grid>
+                      </React.Fragment>
+                    );
+                  }} />
+                  <Route path="/alberta-covid-19-tracker/map" render={() => {
+                    return (
+                      <Grid container justify="center" spacing={4} style={{ marginTop: "1vh", marginBottom: "1vh" }}>
+                        <Grid item >
+                          <Map edmontonActiveNumber={this.state.edmontonActive.length}
+                            calgaryActiveNumber={this.state.calgaryActive.length} />
+                        </Grid>
+                      </Grid>
 
-                <Grid container justify="center" spacing={4}>
-                  <Grid item >
-                    <Alberta albertaActive={this.state.albertaActive}
-                      albertaRecovered={this.state.albertaRecovered}
-                      albertaDied={this.state.albertaDied} />
-                  </Grid>
-                  <Grid item >
-                    <Gender albertaData={this.state.albertaData} />
-                  </Grid>
-                  <Grid item >
-                    <City edmontonData={this.state.edmontonData} calgaryData={this.state.calgaryData} />
-                  </Grid><Grid item >
-                    <VisualizationTab albertaDailyData={this.state.albertaDailyData}
-                      calgaryDailyData={this.state.calgaryDailyData} edmontonDailyData={this.state.edmontonDailyData}
-                      calgaryDailyVaccination={this.state.calgaryDailyVaccination} edmontonDailyVaccination={this.state.edmontonDailyVaccination}
-                      albertaDailyVariant={this.state.albertaDailyVariant}
-                      edmontonVariant={this.state.edmontonVariant}
-                      calgaryVariant={this.state.calgaryVariant} />
-                  </Grid>
+                    );
+                  }} />
 
-                  <Grid item >
-                    <Map edmontonActiveNumber={this.state.edmontonActive.length}
-                      calgaryActiveNumber={this.state.calgaryActive.length} />
-                  </Grid>
-                </Grid>
 
-              </Container>
-            }
-          </ThemeProvider>
-        </main>
-        <footer>
-          <Copyright />
-        </footer>
-      </React.Fragment >
+                </Container>
+              }
+            </ThemeProvider>
+          </main>
+          <footer>
+            <Copyright />
+          </footer>
+        </React.Fragment >
+      </HashRouter>
     );
   }
 
