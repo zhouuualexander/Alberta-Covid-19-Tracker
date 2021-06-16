@@ -14,10 +14,7 @@ import Gender from './components/Visualization/Gender';
 import City from './components/Visualization/City';
 import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 import Map from '../src/components/MapContainer/MapContainer';
-import AlbertaVariant from "./components/Visualization/AlbertaVariant";
-import EdmontonVariant from "./components/Visualization/EdmontonVariant";
-import CalgaryVariant from "./components/Visualization/CalgaryVariant";
-import CitiesVariant from "./components/Visualization/CitiesVariant";
+
 import VisualizationTab from './components/VisualizationTab/VisualizationTab';
 class App extends Component {
 
