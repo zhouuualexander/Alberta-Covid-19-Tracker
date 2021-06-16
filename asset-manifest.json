@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/alberta-covid-19-tracker/static/css/main.56cda763.chunk.css",
-    "main.js": "/alberta-covid-19-tracker/static/js/main.7ffc13a8.chunk.js",
-    "main.js.map": "/alberta-covid-19-tracker/static/js/main.7ffc13a8.chunk.js.map",
+    "main.js": "/alberta-covid-19-tracker/static/js/main.95f0f7d6.chunk.js",
+    "main.js.map": "/alberta-covid-19-tracker/static/js/main.95f0f7d6.chunk.js.map",
     "runtime-main.js": "/alberta-covid-19-tracker/static/js/runtime-main.7563e167.js",
     "runtime-main.js.map": "/alberta-covid-19-tracker/static/js/runtime-main.7563e167.js.map",
-    "static/js/2.455569b7.chunk.js": "/alberta-covid-19-tracker/static/js/2.455569b7.chunk.js",
-    "static/js/2.455569b7.chunk.js.map": "/alberta-covid-19-tracker/static/js/2.455569b7.chunk.js.map",
+    "static/js/2.ce283201.chunk.js": "/alberta-covid-19-tracker/static/js/2.ce283201.chunk.js",
+    "static/js/2.ce283201.chunk.js.map": "/alberta-covid-19-tracker/static/js/2.ce283201.chunk.js.map",
     "index.html": "/alberta-covid-19-tracker/index.html",
     "static/css/main.56cda763.chunk.css.map": "/alberta-covid-19-tracker/static/css/main.56cda763.chunk.css.map",
-    "static/js/2.455569b7.chunk.js.LICENSE.txt": "/alberta-covid-19-tracker/static/js/2.455569b7.chunk.js.LICENSE.txt",
+    "static/js/2.ce283201.chunk.js.LICENSE.txt": "/alberta-covid-19-tracker/static/js/2.ce283201.chunk.js.LICENSE.txt",
     "static/media/calgary_final_revised.f2bffc36.jpg": "/alberta-covid-19-tracker/static/media/calgary_final_revised.f2bffc36.jpg",
     "static/media/edmonton-banner.da90867e.jpg": "/alberta-covid-19-tracker/static/media/edmonton-banner.da90867e.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.7563e167.js",
-    "static/js/2.455569b7.chunk.js",
+    "static/js/2.ce283201.chunk.js",
     "static/css/main.56cda763.chunk.css",
-    "static/js/main.7ffc13a8.chunk.js"
+    "static/js/main.95f0f7d6.chunk.js"
   ]
 }
