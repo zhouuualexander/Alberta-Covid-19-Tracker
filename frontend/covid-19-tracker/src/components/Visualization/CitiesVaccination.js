@@ -5,10 +5,26 @@ import {
     ValueAxis,
     Chart,
     Legend,
-    LineSeries,
+    ArgumentAxis,
     Title,
     SplineSeries,
 } from '@devexpress/dx-react-chart-material-ui';
+const labelHalfWidth = 500;
+let lastLabelCoordinate;
+
+const ArgumentLabel = props => {
+    const { x } = props;
+    // filter Labels
+    if (
+        lastLabelCoordinate &&
+        lastLabelCoordinate < x &&
+        x - lastLabelCoordinate <= labelHalfWidth
+    ) {
+        return null;
+    }
+    lastLabelCoordinate = x;
+    return <ArgumentAxis.Label {...props} />;
+};
 
 export default class CitiesVaccination extends React.PureComponent {
 
@@ -18,7 +34,7 @@ export default class CitiesVaccination extends React.PureComponent {
     edmontonDailyVaccinationRate = this.oldEdmonton.reverse().map((data) => {
         return ({
             splineValue: data["percent_pop_1_plus_dose"],
-            argument: data.date,
+            argument: data.date.slice(0, 10),
         });
 
     });
@@ -56,15 +72,15 @@ export default class CitiesVaccination extends React.PureComponent {
                         argumentField="argument"
                         color="blue"
                     />
-                    <LineSeries
+                    <SplineSeries
                         name="Calgary"
                         valueField="lineValue"
                         argumentField="argument"
                         color="red"
                     />
+                    <ArgumentAxis labelComponent={ArgumentLabel} />
                     <Legend />
                 </Chart>
-                <Typography align="center">Since April 25th, 2021</Typography>
             </Paper >
         );
     }

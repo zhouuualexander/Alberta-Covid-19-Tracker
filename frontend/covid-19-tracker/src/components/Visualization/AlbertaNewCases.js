@@ -5,11 +5,26 @@ import {
 
     ValueAxis,
     Chart,
-
+    ArgumentAxis,
     Title,
     SplineSeries,
 } from '@devexpress/dx-react-chart-material-ui';
+const labelHalfWidth = 150;
+let lastLabelCoordinate;
 
+const ArgumentLabel = props => {
+    const { x } = props;
+    // filter Labels
+    if (
+        lastLabelCoordinate &&
+        lastLabelCoordinate < x &&
+        x - lastLabelCoordinate <= labelHalfWidth
+    ) {
+        return null;
+    }
+    lastLabelCoordinate = x;
+    return <ArgumentAxis.Label {...props} />;
+};
 export default class AlbertaNewCases extends React.PureComponent {
 
     old = [...this.props.albertaDailyData];
@@ -17,7 +32,7 @@ export default class AlbertaNewCases extends React.PureComponent {
         if (this.props.albertaDailyData[i + 1]) {
             return ({
                 splineValue: this.props.albertaDailyData[i]["cases_confirmed_cumulative"] - this.props.albertaDailyData[i + 1]["cases_confirmed_cumulative"],
-                argument: data.date,
+                argument: data.date.slice(0, 10),
             });
         }
         else {
@@ -42,15 +57,14 @@ export default class AlbertaNewCases extends React.PureComponent {
                     data={chartData}
                 >
                     <Title text="Alberta daily new cases curve" />
-
                     <ValueAxis />
                     <SplineSeries
                         name="spline"
                         valueField="splineValue"
                         argumentField="argument"
                     />
+                    <ArgumentAxis labelComponent={ArgumentLabel} />
                 </Chart>
-                <Typography align="center">Since the beginning of the pandemic</Typography>
             </Paper>
         );
     }

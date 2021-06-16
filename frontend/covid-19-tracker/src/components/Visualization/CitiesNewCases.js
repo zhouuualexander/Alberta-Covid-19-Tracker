@@ -5,11 +5,26 @@ import {
     ValueAxis,
     Chart,
     Legend,
-    LineSeries,
     Title,
+    ArgumentAxis,
     SplineSeries,
 } from '@devexpress/dx-react-chart-material-ui';
+const labelHalfWidth = 150;
+let lastLabelCoordinate;
 
+const ArgumentLabel = props => {
+    const { x } = props;
+    // filter Labels
+    if (
+        lastLabelCoordinate &&
+        lastLabelCoordinate < x &&
+        x - lastLabelCoordinate <= labelHalfWidth
+    ) {
+        return null;
+    }
+    lastLabelCoordinate = x;
+    return <ArgumentAxis.Label {...props} />;
+};
 export default class CitiesNewCases extends React.PureComponent {
 
     oldEdmonton = [...this.props.edmontonDailyData];
@@ -19,7 +34,7 @@ export default class CitiesNewCases extends React.PureComponent {
         if (this.props.edmontonDailyData[i + 1]) {
             return ({
                 splineValue: this.props.edmontonDailyData[i]["cases_confirmed_cumulative"] - this.props.edmontonDailyData[i + 1]["cases_confirmed_cumulative"],
-                argument: data.date,
+                argument: data.date.slice(0, 10),
             });
         }
         else {
@@ -69,38 +84,16 @@ export default class CitiesNewCases extends React.PureComponent {
                         argumentField="argument"
                         color="blue"
                     />
-                    <LineSeries
+                    <SplineSeries
                         name="Calgary"
                         valueField="lineValue"
                         argumentField="argument"
                         color="red"
                     />
                     <Legend />
-
+                    <ArgumentAxis labelComponent={ArgumentLabel} />
                 </Chart>
-                <Typography align="center">Since the beginning of the pandemic</Typography>
             </Paper >
         );
     }
 }
-// return (
-//     <Paper style={{ width: "800px" }}>
-//         <Chart height={300}
-//             width={800}
-//             data={chartData}
-//         >
-//             <Title text="Edmonton vs Calgary new cases curve" />
-//             <ValueAxis />
-//             <SplineSeries
-//                 name="Edmonton"
-//                 valueField="splineValue"
-//             />
-//             {/* <LineSeries
-//                 name="Calgary"
-//                 valueField="lineValue"
-//             /> */}
-//             <Legend />
-//         </Chart>
-//         <Typography align="center">Since the beginning of the pandemic</Typography>
-//     </Paper>
-// );

@@ -9,7 +9,22 @@ import {
     Title,
     SplineSeries,
 } from '@devexpress/dx-react-chart-material-ui';
+const labelHalfWidth = 500;
+let lastLabelCoordinate;
 
+const ArgumentLabel = props => {
+    const { x } = props;
+    // filter Labels
+    if (
+        lastLabelCoordinate &&
+        lastLabelCoordinate < x &&
+        x - lastLabelCoordinate <= labelHalfWidth
+    ) {
+        return null;
+    }
+    lastLabelCoordinate = x;
+    return <ArgumentAxis.Label {...props} />;
+};
 
 export default class AlbertaNewCases extends React.PureComponent {
 
@@ -18,7 +33,7 @@ export default class AlbertaNewCases extends React.PureComponent {
 
         return ({
             splineValue: Math.log(data["cases_confirmed_cumulative"]),
-            argument: data.date,
+            argument: data.date.slice(0, 10),
         });
 
 
@@ -36,15 +51,14 @@ export default class AlbertaNewCases extends React.PureComponent {
                     data={chartData}
                 >
                     <Title text="Alberta accumulate cases curve (Logarithm)" />
-
                     <ValueAxis />
                     <SplineSeries
                         name="spline"
                         valueField="splineValue"
                         argumentField="argument"
                     />
+                    <ArgumentAxis labelComponent={ArgumentLabel} />
                 </Chart>
-                <Typography align="center">Since the beginning of the pandemic</Typography>
             </Paper>
         );
     }

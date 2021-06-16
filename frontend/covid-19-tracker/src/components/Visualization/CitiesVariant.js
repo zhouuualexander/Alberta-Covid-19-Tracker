@@ -6,9 +6,25 @@ import {
     ValueAxis,
     Chart,
     Title,
-    LineSeries,
+    ArgumentAxis,
+    SplineSeries,
 } from '@devexpress/dx-react-chart-material-ui';
+const labelHalfWidth = 500;
+let lastLabelCoordinate;
 
+const ArgumentLabel = props => {
+    const { x } = props;
+    // filter Labels
+    if (
+        lastLabelCoordinate &&
+        lastLabelCoordinate < x &&
+        x - lastLabelCoordinate <= labelHalfWidth
+    ) {
+        return null;
+    }
+    lastLabelCoordinate = x;
+    return <ArgumentAxis.Label {...props} />;
+};
 export default class CitiesVariant extends React.PureComponent {
 
     oldCalgary = [...this.props.calgaryVariant];
@@ -16,7 +32,7 @@ export default class CitiesVariant extends React.PureComponent {
         if (this.props.calgaryVariant[i + 1]) {
             return ({
                 calgaryDelta: Math.round(this.props.calgaryVariant[i]["b_1_617"]),
-                argument: data.date,
+                argument: data.date.slice(0, 10),
             });
         }
         else {
@@ -60,28 +76,28 @@ export default class CitiesVariant extends React.PureComponent {
         const { data: chartData } = this.state;
         return (
             <React.Fragment >
-                <Paper style={{ width: "70vw" }} >
+                <Paper style={{ width: "70vw", marginBottom: '3vh' }} >
                     <Chart height={300}
                         width="70vw"
                         data={chartData}
                     >
                         <Title text="Edmonton VS Calgary Delta curve" />
                         <ValueAxis />
-                        <LineSeries
+                        <SplineSeries
                             name="Calgary"
                             valueField="calgary"
                             argumentField="argument"
                             color="red"
                         />
-                        <LineSeries
+                        <SplineSeries
                             name="Edmonton"
                             valueField="edmonton"
                             argumentField="argument"
                             color="blue"
                         />
+                        <ArgumentAxis labelComponent={ArgumentLabel} />
                         <Legend />
                     </Chart>
-                    <Typography align="center">Since the beginning of the pandemic</Typography>
                 </Paper>
 
             </React.Fragment>

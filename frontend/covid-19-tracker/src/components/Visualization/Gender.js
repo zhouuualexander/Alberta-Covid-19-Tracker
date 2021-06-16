@@ -57,7 +57,6 @@ export default class Demo extends React.PureComponent {
                         name="Female"
                         color="pink"
                     />
-
                     <EventTracker />
                     <HoverState />
                     <Tooltip />
