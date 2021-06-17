@@ -27,13 +27,13 @@ const ArgumentLabel = props => {
 };
 export default class CitiesNewCases extends React.PureComponent {
 
-    oldEdmonton = [...this.props.edmontonDailyData];
+    oldEdmonton = [...this.props.edmontonDailyData].reverse();
     oldCalgary = [...this.props.calgaryDailyData];
 
-    newEdmontonCases = this.oldEdmonton.reverse().map((data, i) => {
+    newEdmontonCases = this.oldEdmonton.map((data, i) => {
         if (this.props.edmontonDailyData[i + 1]) {
             return ({
-                splineValue: this.props.edmontonDailyData[i]["cases_confirmed_cumulative"] - this.props.edmontonDailyData[i + 1]["cases_confirmed_cumulative"],
+                splineValue: this.oldEdmonton[i + 1]["cases_confirmed_cumulative"] - this.oldEdmonton[i]["cases_confirmed_cumulative"],
                 argument: data.date.slice(0, 10),
             });
         }
@@ -48,7 +48,7 @@ export default class CitiesNewCases extends React.PureComponent {
     newCalgaryCases = this.oldCalgary.reverse().map((data, i) => {
         if (this.props.calgaryDailyData[i + 1]) {
             return ({
-                lineValue: this.props.calgaryDailyData[i]["cases_confirmed_cumulative"] - this.props.calgaryDailyData[i + 1]["cases_confirmed_cumulative"],
+                lineValue: this.oldCalgary[i + 1]["cases_confirmed_cumulative"] - this.oldCalgary[i]["cases_confirmed_cumulative"],
             });
         }
         else {

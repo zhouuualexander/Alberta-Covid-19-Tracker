@@ -27,17 +27,17 @@ const ArgumentLabel = props => {
 };
 export default class AlbertaNewCases extends React.PureComponent {
 
-    old = [...this.props.albertaDailyData];
-    newCases = this.old.reverse().map((data, i) => {
+    old = [...this.props.albertaDailyData].reverse();
+    newCases = this.old.map((data, i) => {
         if (this.props.albertaDailyData[i + 1]) {
             return ({
-                splineValue: this.props.albertaDailyData[i]["cases_confirmed_cumulative"] - this.props.albertaDailyData[i + 1]["cases_confirmed_cumulative"],
+                splineValue: this.old[i + 1]["cases_confirmed_cumulative"] - this.old[i]["cases_confirmed_cumulative"],
                 argument: data.date.slice(0, 10),
             });
         }
         else {
             return ({
-                splineValue: 0,
+                splineValue: this.old[i]["cases_confirmed_cumulative"] - this.old[i - 1]["cases_confirmed_cumulative"],
                 argument: 0,
             });;
         }
