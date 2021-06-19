@@ -14,7 +14,7 @@ import Gender from './components/Visualization/Gender';
 import City from './components/Visualization/City';
 import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 import Map from '../src/components/MapContainer/MapContainer';
-import { HashRouter } from 'react-router-dom';
+import { HashRouter, Switch } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import VisualizationTab from './components/VisualizationTab/VisualizationTab';
 class App extends Component {
@@ -235,33 +235,36 @@ class App extends Component {
                       </React.Fragment>
                     );
                   }} />
-                  <Route path="/alberta-covid-19-tracker/visualization" exact render={() => {
-                    return (
-                      <React.Fragment>
+                  <Switch>
+                    <Route path="/alberta-covid-19-tracker/visualization" exact render={() => {
+                      return (
+                        <React.Fragment>
+                          <Grid container justify="center" spacing={4} style={{ marginTop: "1vh", marginBottom: "1vh" }}>
+                            <Grid item>
+                              <VisualizationTab albertaDailyData={this.state.albertaDailyData}
+                                calgaryDailyData={this.state.calgaryDailyData} edmontonDailyData={this.state.edmontonDailyData}
+                                calgaryDailyVaccination={this.state.calgaryDailyVaccination} edmontonDailyVaccination={this.state.edmontonDailyVaccination}
+                                albertaDailyVariant={this.state.albertaDailyVariant}
+                                edmontonVariant={this.state.edmontonVariant}
+                                calgaryVariant={this.state.calgaryVariant} />
+                            </Grid>
+                          </Grid>
+                        </React.Fragment>
+                      );
+                    }} />
+                    <Route path="/alberta-covid-19-tracker/map" render={() => {
+                      return (
                         <Grid container justify="center" spacing={4} style={{ marginTop: "1vh", marginBottom: "1vh" }}>
-                          <Grid item>
-                            <VisualizationTab albertaDailyData={this.state.albertaDailyData}
-                              calgaryDailyData={this.state.calgaryDailyData} edmontonDailyData={this.state.edmontonDailyData}
-                              calgaryDailyVaccination={this.state.calgaryDailyVaccination} edmontonDailyVaccination={this.state.edmontonDailyVaccination}
-                              albertaDailyVariant={this.state.albertaDailyVariant}
-                              edmontonVariant={this.state.edmontonVariant}
-                              calgaryVariant={this.state.calgaryVariant} />
+                          <Grid item >
+                            <Map edmontonActiveNumber={this.state.edmontonActive.length}
+                              calgaryActiveNumber={this.state.calgaryActive.length} />
                           </Grid>
                         </Grid>
-                      </React.Fragment>
-                    );
-                  }} />
-                  <Route path="/alberta-covid-19-tracker/map" render={() => {
-                    return (
-                      <Grid container justify="center" spacing={4} style={{ marginTop: "1vh", marginBottom: "1vh" }}>
-                        <Grid item >
-                          <Map edmontonActiveNumber={this.state.edmontonActive.length}
-                            calgaryActiveNumber={this.state.calgaryActive.length} />
-                        </Grid>
-                      </Grid>
 
-                    );
-                  }} />
+                      );
+                    }} />
+                  </Switch>
+
 
 
                 </Container>
