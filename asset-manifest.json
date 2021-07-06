@@ -1,22 +1,25 @@
 {
   "files": {
     "main.css": "/alberta-covid-19-tracker/static/css/main.56cda763.chunk.css",
-    "main.js": "/alberta-covid-19-tracker/static/js/main.47810fc5.chunk.js",
-    "main.js.map": "/alberta-covid-19-tracker/static/js/main.47810fc5.chunk.js.map",
+    "main.js": "/alberta-covid-19-tracker/static/js/main.16d2a016.chunk.js",
+    "main.js.map": "/alberta-covid-19-tracker/static/js/main.16d2a016.chunk.js.map",
     "runtime-main.js": "/alberta-covid-19-tracker/static/js/runtime-main.7563e167.js",
     "runtime-main.js.map": "/alberta-covid-19-tracker/static/js/runtime-main.7563e167.js.map",
-    "static/js/2.ef08cb43.chunk.js": "/alberta-covid-19-tracker/static/js/2.ef08cb43.chunk.js",
-    "static/js/2.ef08cb43.chunk.js.map": "/alberta-covid-19-tracker/static/js/2.ef08cb43.chunk.js.map",
+    "static/css/2.a6192da1.chunk.css": "/alberta-covid-19-tracker/static/css/2.a6192da1.chunk.css",
+    "static/js/2.4bd798ed.chunk.js": "/alberta-covid-19-tracker/static/js/2.4bd798ed.chunk.js",
+    "static/js/2.4bd798ed.chunk.js.map": "/alberta-covid-19-tracker/static/js/2.4bd798ed.chunk.js.map",
     "index.html": "/alberta-covid-19-tracker/index.html",
+    "static/css/2.a6192da1.chunk.css.map": "/alberta-covid-19-tracker/static/css/2.a6192da1.chunk.css.map",
     "static/css/main.56cda763.chunk.css.map": "/alberta-covid-19-tracker/static/css/main.56cda763.chunk.css.map",
-    "static/js/2.ef08cb43.chunk.js.LICENSE.txt": "/alberta-covid-19-tracker/static/js/2.ef08cb43.chunk.js.LICENSE.txt",
+    "static/js/2.4bd798ed.chunk.js.LICENSE.txt": "/alberta-covid-19-tracker/static/js/2.4bd798ed.chunk.js.LICENSE.txt",
     "static/media/calgary_final_revised.f2bffc36.jpg": "/alberta-covid-19-tracker/static/media/calgary_final_revised.f2bffc36.jpg",
     "static/media/edmonton-banner.da90867e.jpg": "/alberta-covid-19-tracker/static/media/edmonton-banner.da90867e.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.7563e167.js",
-    "static/js/2.ef08cb43.chunk.js",
+    "static/css/2.a6192da1.chunk.css",
+    "static/js/2.4bd798ed.chunk.js",
     "static/css/main.56cda763.chunk.css",
-    "static/js/main.47810fc5.chunk.js"
+    "static/js/main.16d2a016.chunk.js"
   ]
 }
