@@ -1,5 +1,6 @@
 import "moment-timezone";
 import axios from "axios";
+import { NotFoundPage } from "@teambit/design.ui.pages.not-found";
 import Grid from "@material-ui/core/Grid";
 import React, { Component } from "react";
 import "./App.css";
@@ -202,40 +203,41 @@ class App extends Component {
                   <Loading type="spin" color="black" />
                 </div> :
                 <Container maxWidth='lg' style={{ marginBottom: '10px' }}>
-                  <Route path="/" exact render={() => {
-                    return (
-                      <React.Fragment>
-                        <div style={{ marginBottom: '20px' }}>
-                          <ZoneCard albertaData={this.state.albertaData}
-                            albertaOldData={this.state.albertaOldData}
-                            edmontonData={this.state.edmontonData}
-                            edmontonActive={this.state.edmontonActive}
-                            edmontonRecovered={this.state.edmontonRecovered}
-                            edmontonDied={this.state.edmontonDied}
-                            calgaryData={this.state.calgaryData}
-                            calgaryActive={this.state.calgaryActive}
-                            calgaryRecovered={this.state.calgaryRecovered}
-                            calgaryDied={this.state.calgaryDied}
-                            edmontonDailyVaccination={this.state.edmontonDailyVaccination}
-                            calgaryDailyVaccination={this.state.calgaryDailyVaccination} />
-                        </div>
-                        <Grid container justify="center" spacing={4}>
-                          <Grid item >
-                            <Alberta albertaActive={this.state.albertaActive}
-                              albertaRecovered={this.state.albertaRecovered}
-                              albertaDied={this.state.albertaDied} />
-                          </Grid>
-                          <Grid item >
-                            <Gender albertaData={this.state.albertaData} />
-                          </Grid>
-                          <Grid item >
-                            <City edmontonData={this.state.edmontonData} calgaryData={this.state.calgaryData} />
-                          </Grid><Grid item ></Grid>
-                        </Grid>
-                      </React.Fragment>
-                    );
-                  }} />
+
                   <Switch>
+                    <Route path="/" exact render={() => {
+                      return (
+                        <React.Fragment>
+                          <div style={{ marginBottom: '20px' }}>
+                            <ZoneCard albertaData={this.state.albertaData}
+                              albertaOldData={this.state.albertaOldData}
+                              edmontonData={this.state.edmontonData}
+                              edmontonActive={this.state.edmontonActive}
+                              edmontonRecovered={this.state.edmontonRecovered}
+                              edmontonDied={this.state.edmontonDied}
+                              calgaryData={this.state.calgaryData}
+                              calgaryActive={this.state.calgaryActive}
+                              calgaryRecovered={this.state.calgaryRecovered}
+                              calgaryDied={this.state.calgaryDied}
+                              edmontonDailyVaccination={this.state.edmontonDailyVaccination}
+                              calgaryDailyVaccination={this.state.calgaryDailyVaccination} />
+                          </div>
+                          <Grid container justify="center" spacing={4}>
+                            <Grid item >
+                              <Alberta albertaActive={this.state.albertaActive}
+                                albertaRecovered={this.state.albertaRecovered}
+                                albertaDied={this.state.albertaDied} />
+                            </Grid>
+                            <Grid item >
+                              <Gender albertaData={this.state.albertaData} />
+                            </Grid>
+                            <Grid item >
+                              <City edmontonData={this.state.edmontonData} calgaryData={this.state.calgaryData} />
+                            </Grid><Grid item ></Grid>
+                          </Grid>
+                        </React.Fragment>
+                      );
+                    }} />
                     <Route path="/alberta-covid-19-tracker/visualization" exact render={() => {
                       return (
                         <React.Fragment>
@@ -263,10 +265,11 @@ class App extends Component {
 
                       );
                     }} />
+
+                    <Route render={() => {
+                      return <NotFoundPage />;
+                    }} />
                   </Switch>
-
-
-
                 </Container>
               }
             </ThemeProvider>

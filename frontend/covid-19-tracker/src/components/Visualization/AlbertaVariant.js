@@ -62,7 +62,7 @@ export default class AlbertaVariant extends React.PureComponent {
                         width="70vw"
                         data={chartData}
                     >
-                        <Title text="Alberta Variant Beta VS Delta curve" />
+                        <Title text="Alberta Variant Beta VS Delta curve VS Gamma curve" />
                         <ValueAxis />
                         <SplineSeries
                             name="Delta (India B.1.617)"
@@ -74,6 +74,11 @@ export default class AlbertaVariant extends React.PureComponent {
                             valueField="southAfrica"
                             argumentField="argument"
                         />
+                        <SplineSeries
+                            name="Gamma (Brazil P.1)"
+                            valueField="brazil"
+                            argumentField="argument"
+                        />
                         <ArgumentAxis labelComponent={ArgumentLabel} />
                         <Legend />
                     </Chart>
@@ -83,7 +88,7 @@ export default class AlbertaVariant extends React.PureComponent {
                         width="70vw"
                         data={chartData}
                     >
-                        <Title text="Alberta Variant Alpha VS Gamma curve" />
+                        <Title text="Alberta Variant Alpha curve" />
                         <ValueAxis />
                         <SplineSeries
                             name="Alpha (British B.1.1.7)"

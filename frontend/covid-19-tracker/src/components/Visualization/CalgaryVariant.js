@@ -44,7 +44,7 @@ export default class CalgaryVariant extends React.PureComponent {
                 brazil: Math.round(this.props.calgaryVariant[i - 1]["p_1"]),
                 british: Math.round(this.props.calgaryVariant[i - 1]["b_1_1_7"]),
                 india: Math.round(this.props.calgaryVariant[i - 1]["b_1_617"]),
-                argument: 0,
+                argument: null,
             });;
         }
 
@@ -58,11 +58,11 @@ export default class CalgaryVariant extends React.PureComponent {
         return (
             <React.Fragment >
                 <Paper style={{ width: "70vw", marginBottom: '3vh' }} >
-                    <Chart height={300}
+                    <Chart height={800}
                         width="70vw"
                         data={chartData}
                     >
-                        <Title text="Calgary Variant Beta VS Delta curve" />
+                        <Title text="Calgary Variant curve" />
                         <ValueAxis />
                         <SplineSeries
                             name="Delta (India B.1.617)"
@@ -74,17 +74,6 @@ export default class CalgaryVariant extends React.PureComponent {
                             valueField="southAfrica"
                             argumentField="argument"
                         />
-                        <ArgumentAxis labelComponent={ArgumentLabel} />
-                        <Legend />
-                    </Chart>
-                </Paper>
-                <Paper style={{ width: "70vw", marginBottom: '3vh' }}>
-                    <Chart height={300}
-                        width="70vw"
-                        data={chartData}
-                    >
-                        <Title text="Calgary Variant Alpha VS Gamma curve" />
-                        <ValueAxis />
                         <SplineSeries
                             name="Alpha (British B.1.1.7)"
                             valueField="british"
@@ -98,8 +87,8 @@ export default class CalgaryVariant extends React.PureComponent {
                         <ArgumentAxis labelComponent={ArgumentLabel} />
                         <Legend />
                     </Chart>
-
                 </Paper>
+
             </React.Fragment>
         );
     }
