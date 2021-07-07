@@ -6,10 +6,10 @@ const ZoneCard = (props) => {
     return (
         <React.Fragment>
             <Typography variant="h4" align="center" color="textSecondary" paragraph style={{ marginTop: "2%" }} >
-                Alberta total: {<CountUp start={0} end={props.albertaData.length} duration={2.5} separator=',' />}
+                Alberta total: {<CountUp start={0} end={parseInt(props.albertaData.length)} duration={2.5} separator=',' />}
             </Typography>
             <Typography variant="h4" align="center" color="textSecondary" paragraph style={{ marginTop: "2%" }} >
-                Alberta increased: {<CountUp start={0} end={props.albertaData.length - props.albertaOldData.length} duration={2.5} separator=',' />} on yesterday
+                Alberta increased: {<CountUp start={0} end={parseInt(props.albertaData.length - props.albertaOldData.length)} duration={2.5} separator=',' />} on yesterday
             </Typography>
             <Grid container spacing={2} justify="center">
                 <ImgMediaCard

@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 import {
     BrowserView,
     MobileOnlyView,
-    isBrowser,
-    isMobile,
+
     TabletView
 } from "react-device-detect";
 import Tab from '@material-ui/core/Tab';

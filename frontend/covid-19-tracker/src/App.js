@@ -18,6 +18,7 @@ import Map from '../src/components/MapContainer/MapContainer';
 import { HashRouter, Switch } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import VisualizationTab from './components/VisualizationTab/VisualizationTab';
+import ConsoleLog from '../src/components/ConsoleLog/ConsoleLog';
 class App extends Component {
 
   state = {
@@ -209,6 +210,7 @@ class App extends Component {
                       return (
                         <React.Fragment>
                           <div style={{ marginBottom: '20px' }}>
+                            <ConsoleLog />
                             <ZoneCard albertaData={this.state.albertaData}
                               albertaOldData={this.state.albertaOldData}
                               edmontonData={this.state.edmontonData}

@@ -61,19 +61,19 @@ const ImgMediaCard = (props) => {
                 {city.name}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p" >
-                Total cases: {<CountUp start={0} end={city.totalCases} duration={2.5} />}
+                Total cases: {<CountUp start={0} end={parseInt(city.totalCases)} duration={2.5} />}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p" >
-                Recovered cases: {<CountUp start={0} end={city.recoveredCases} duration={2.5} />}
+                Recovered cases: {<CountUp start={0} end={parseInt(city.recoveredCases)} duration={2.5} />}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p" >
-                Active cases: {<CountUp start={0} end={city.activeCases} duration={2.5} />}
+                Active cases: {<CountUp start={0} end={parseInt(city.activeCases)} duration={2.5} />}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p" >
-                Death cases: {<CountUp start={0} end={city.diedCases} duration={2.5} />}
+                Death cases: {<CountUp start={0} end={parseInt(city.diedCases)} duration={2.5} />}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p" >
-                First Dose of Vaccination rate: {<CountUp start={0} end={city.firstDoseRate} duration={2.5} />}%
+                First Dose of Vaccination rate: {<CountUp start={0} end={parseInt(city.firstDoseRate)} duration={2.5} />}%
               </Typography>
             </CardContent>
           </CardActionArea>
